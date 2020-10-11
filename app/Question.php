@@ -22,7 +22,7 @@ class Question extends Model
     ];
 
     /**
-     * Question belongs to a single school
+     * Question belongs to school
      */
     public function school()
     {
@@ -30,7 +30,7 @@ class Question extends Model
     }
 
     /**
-     * Question belongs to a single subject
+     * Question belongs to subject
      */
     public function subject()
     {
@@ -38,7 +38,7 @@ class Question extends Model
     }
 
     /**
-     * Question belongs to a single category
+     * Question belongs to category
      */
     public function Category()
     {

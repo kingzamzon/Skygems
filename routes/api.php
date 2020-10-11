@@ -29,6 +29,8 @@ Route::prefix('v1')->group(function() {
 	Route::get('schools', 'Api\SchoolController@index')->name('schools.index');
 	Route::get('subjects', 'Api\SubjectController@index')->name('subjects.index');
 	Route::get('category', 'Api\CategoryController@index')->name('category.index');
+
+	Route::get('question/{id}/options','VoyagerQuestionController@getQuestionOptions')->name('questionOptions');
 	
 	Route::group(['middleware' => 'auth:api'], function() {
 

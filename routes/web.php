@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    // override voyager 
+    Route::post('questions/store', ['uses' => 'VoyagerQuestionController@store', 'as' => 'voyager.questions.store']);
+	Route::put('questions/store/{id}', ['uses' => 'VoyagerQuestionController@update', 'as' => 'voyager.questions.update']);
 });
