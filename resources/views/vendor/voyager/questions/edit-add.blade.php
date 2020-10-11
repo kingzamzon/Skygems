@@ -315,7 +315,7 @@
                                         class="form-control option_name" placeholder="Option " value="${value.name}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="radio" name="option_answer" class="form-check-input" id="option_answer${value.id}" value="${value - 1}" ${selected}>
+                                    <input type="radio" name="option_answer" class="form-check-input" id="option_answer${value.id}" value="${count - 1}" ${selected}>
                                     <label class="form-check-label" for="option_answer${value.id}">Correct Answer</label>
                                 </div>
                                 <div class="form-group">
