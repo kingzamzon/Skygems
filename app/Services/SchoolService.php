@@ -10,7 +10,7 @@ class SchoolService
 {
     public function index()
     {
-        return School::orderBy('id', 'desc')->paginate(15);
+        return School::orderBy('name', 'asc')->get();
     }
 
     public function create(array $data)

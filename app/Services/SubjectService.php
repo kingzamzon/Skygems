@@ -10,7 +10,7 @@ class SubjectService
 {
     public function index()
     {
-        return Subject::orderBy('id', 'desc')->paginate(15);
+        return Subject::orderBy('name', 'asc')->get();
     }
 
     public function create(array $data)

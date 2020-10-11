@@ -10,7 +10,7 @@ class CategoryService
 {
     public function index()
     {
-        return Category::orderBy('id', 'desc')->paginate(15);
+        return Category::orderBy('name', 'asc')->get();
     }
 
     public function create(array $data)

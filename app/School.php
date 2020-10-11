@@ -20,6 +20,15 @@ class School extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
+    ];
+    
+    /**
      * School has many questions
      */
     public function question()

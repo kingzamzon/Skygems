@@ -24,7 +24,11 @@ Route::prefix('v1')->group(function() {
 	 * Authentication routes
 	 */
 	Route::post('register', 'Api\AuthController@register');
-	ROute::post('login','Api\AuthController@login');
+	Route::post('login','Api\AuthController@login');
+
+	Route::get('schools', 'Api\SchoolController@index')->name('schools.index');
+	Route::get('subjects', 'Api\SubjectController@index')->name('subjects.index');
+	Route::get('category', 'Api\CategoryController@index')->name('category.index');
 	
 	Route::group(['middleware' => 'auth:api'], function() {
 
@@ -33,17 +37,17 @@ Route::prefix('v1')->group(function() {
 		/**
          * School Route
          */
-		Route::resource('schools','Api\SchoolController');
+		Route::resource('schools','Api\SchoolController', ['except' => ['index']]);
 
 		/**
          * School Route
          */
-		Route::resource('subjects','Api\SubjectController');
+		Route::resource('subjects','Api\SubjectController', ['except' => ['index']]);
 		
 		/**
          * School Route
          */
-        Route::resource('category','Api\CategoryController');
+        Route::resource('category','Api\CategoryController', ['except' => ['index']]);
 	});
     
 });
