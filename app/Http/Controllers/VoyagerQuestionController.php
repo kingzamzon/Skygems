@@ -65,6 +65,7 @@ class VoyagerQuestionController extends \TCG\Voyager\Http\Controllers\VoyagerBas
 
     public function update(Request $request, $id)
     {
+        // return response($request->all());
         $rules = [
             'question_name' => 'required',
             'year' => 'required',
@@ -89,12 +90,11 @@ class VoyagerQuestionController extends \TCG\Voyager\Http\Controllers\VoyagerBas
                 $data['question_image'] = $request->question_image->store('');
             }
             # create user
-            $question = Question::where('id', $id)->update($data);
+            $update_question = Question::where('id', $id)->update($data);
 
             if($question && $request->option_name[0]){
-
                 for($i=0; $i < count($request->option_name); $i++){
-                    if(!empty($request->option_name[$i])){
+                    if(!empty($request->option_id[$i])){
                         $option = Option::find($request->option_id[$i]);
 
                         if($option){
@@ -131,6 +131,13 @@ class VoyagerQuestionController extends \TCG\Voyager\Http\Controllers\VoyagerBas
     public function getQuestionOptions($id)
     {
         $data = Option::where('question_id', $id)->get();
+		return response()->json($data);
+    }
+
+    public function DeleteOption($question_id, $option_id)
+	{
+        $data = Option::where(['id' => $option_id, 'question_id'=>$question_id])->first();
+        $data = $data->delete();
 		return response()->json($data);
     }
 }

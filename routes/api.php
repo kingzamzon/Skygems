@@ -31,6 +31,9 @@ Route::prefix('v1')->group(function() {
 	Route::get('category', 'Api\CategoryController@index')->name('category.index');
 
 	Route::get('question/{id}/options','VoyagerQuestionController@getQuestionOptions')->name('questionOptions');
+
+    Route::delete('question/{question_id}/options/{option_id}','VoyagerQuestionController@DeleteOption')->name('QuestionDeleteOption');
+
 	
 	Route::group(['middleware' => 'auth:api'], function() {
 

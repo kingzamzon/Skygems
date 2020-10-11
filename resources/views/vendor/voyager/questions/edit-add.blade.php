@@ -282,10 +282,10 @@
                 }
             }
 
-        function productsList(){
+        function optionsList(){
             var url = '{{ route("questionOptions", ":id") }}';
-            var collection_id = '{{ $dataTypeContent->id  }}';
-            url = url.replace(':id', collection_id);
+            var question_id = '{{ $dataTypeContent->id  }}';
+            url = url.replace(':id', question_id);
 
             $.ajaxSetup({
                 headers: {
@@ -296,8 +296,6 @@
                     url: url,
                     method: "GET",
                     success: function (data) {
-                        $("#new_product").show();
-
                         var data_count = data.length;
                         count = data_count;
                         checkboxCounter();
@@ -306,28 +304,28 @@
 
                         $.each(data, function(i, value) {
                             (value.answer === "Yes") ? selected = "checked" : selected = "";
-                        $('[option-list]').append(`
-                        <div id="product_${value.id}" class="ola mt-5">
-                            <div class="form-group">
-                            <label for="option_name">Option </label>
+                            $('[option-list]').append(`
+                            <div id="product_${value.id}" class="ola mt-5">
+                                <div class="form-group">
+                                <label for="option_name">Option </label>
 
-                            <input type="hidden" name="option_id[]" id="option_id${value.id}" class="form-control option_id" value="${value.id}">
+                                <input type="hidden" name="option_id[]" id="option_id${value.id}" class="form-control option_id" value="${value.id}">
 
-                            <input type="text" name="option_name[]" id="option_name${value.id}"
-                                    class="form-control option_name" placeholder="Option " value="${value.name}">
-                            </div>
-                            <div class="form-group">
-                                <input type="radio" name="option_answer" class="form-check-input" id="option_answer${value.id}" value="${value - 1}" ${selected}>
-                                <label class="form-check-label" for="option_answer${value.id}">Correct Answer</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="option_image">Option Image</label>
-                                <input type="file" name="option_image[]" id="option_image${value.id}"
-                                class="form-control-file option_image">
-                            </div>
-                            <button type="submit" id="submit" class="btn btn-danger mb-5" onclick="removeAvailableLine(product_${value.id}, ${value.id}, ${collection_id})">Delete</button>
-                        </div>`)
-                        });
+                                <input type="text" name="option_name[]" id="option_name${value.id}"
+                                        class="form-control option_name" placeholder="Option " value="${value.name}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="option_answer" class="form-check-input" id="option_answer${value.id}" value="${value - 1}" ${selected}>
+                                    <label class="form-check-label" for="option_answer${value.id}">Correct Answer</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="option_image">Option Image</label>
+                                    <input type="file" name="option_image[]" id="option_image${value.id}"
+                                    class="form-control-file option_image">
+                                </div>
+                                <button type="submit" id="submit" class="btn btn-danger mb-5" onclick="removeAvailableLine(product_${value.id}, ${value.id}, ${question_id})">Delete</button>
+                            </div>`)
+                            });
                     },
                     error: function(err) {
                         console.log(err);
@@ -337,11 +335,30 @@
         
         if(edit){
             
-            productsList();
+            optionsList();
 
-            function removeAvailableLine(domProductId, productId, collectionId)
+            function removeAvailableLine(domOptionId, optionId, questionId)
             {
-                
+                removeLine(domOptionId);
+                var option_url = '{{ route("QuestionDeleteOption", ["question_id"=> ":question_id", "option_id"=> ":option_id"] ) }}';
+                option_url = option_url.replace(':question_id', questionId);
+                option_url = option_url.replace(':option_id', optionId);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }	
+                    });
+                    $.ajax({
+                        url: option_url,
+                        method: "DELETE",
+                        success: function (data) {
+                            console.log(data);
+                        },
+                        error: function(err) {
+                            console.log(err);
+                        }
+                    })
             }
 
         }
