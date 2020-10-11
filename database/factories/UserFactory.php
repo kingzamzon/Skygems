@@ -4,6 +4,7 @@
 
 use App\User;
 use App\School;
+use App\Subject;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -32,5 +33,11 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(School::class, function (Faker $faker) {
     return [
         'name' => $faker->randomElement(['Unilag','Uniben'])
+    ];
+});
+
+$factory->define(Subject::class, function (Faker $faker) {
+    return [
+        'name' => $faker->randomElement(['Mathematics','English', 'Chemistry', 'Biology'])
     ];
 });

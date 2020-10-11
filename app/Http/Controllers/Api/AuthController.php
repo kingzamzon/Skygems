@@ -5,18 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $validateData = $request->validate([
-            'name' => 'required|max:55',
-            'email' => 'email|required|unique:users',
-            'phone' => 'required|unique:users',
-            'username' => 'required|unique:users',
-            'password' => 'required|confirmed'
-        ]);
+        $validateData = [
+            "name" => $request->get('name'),
+            "email" => $request->get('email'),
+            "phone" => $request->get('phone'),
+            "username" => $request->get('username')
+        ];
 
         $validateData['password'] = bcrypt($request->password);
 

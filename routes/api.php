@@ -33,7 +33,12 @@ Route::prefix('v1')->group(function() {
 		/**
          * School Route
          */
-        Route::resource('schools','Api\SchoolController');
+		Route::resource('schools','Api\SchoolController');
+
+		/**
+         * School Route
+         */
+        Route::resource('subjects','Api\SubjectController');
 	});
     
 });

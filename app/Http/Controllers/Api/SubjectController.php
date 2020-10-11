@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\School;
+use App\Subject;
 use Illuminate\Http\Request;
-use App\Services\SchoolService;
-use App\Http\Requests\SchoolRequest;
+use App\Services\SubjectService;
+use App\Http\Requests\SubjectRequest;
 use App\Http\Controllers\Controller;
 
-class SchoolController extends Controller
+class SubjectController extends Controller
 {
-    protected $schoolService;
+    protected $subjectService;
 
-    public function __construct(SchoolService $schoolService)
+    public function __construct(SubjectService $subjectService)
     {
-        $this->schoolService = $schoolService;
+        $this->subjectService = $subjectService;
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        $data = $this->schoolService->index();
+        $data = $this->subjectService->index();
 
         return response($data);
     }
@@ -34,27 +34,26 @@ class SchoolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SchoolRequest $request)
+    public function store(SubjectRequest $request)
     {
         $data = [
             "name" => $request->get('name')
         ];
 
-        $data = $this->schoolService->create($data);
+        $data = $this->subjectService->create($data);
 
         return response($data);
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\School  $school
+     * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function show($school)
+    public function show($subject)
     {
-        $data = $this->schoolService->find($school);
+        $data = $this->subjectService->find($subject);
 
         return response($data);
     }
@@ -63,10 +62,10 @@ class SchoolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\School  $school
+     * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $school)
+    public function update(Request $request, $subject)
     {
         try {
             # create data
@@ -74,8 +73,7 @@ class SchoolController extends Controller
                 "name" => $request->get('name')
             ];
 
-            # create user
-            $data = $this->schoolService->update($school, $data);
+            $data = $this->subjectService->update($subject, $data);
 
             return response($data);
 
@@ -87,18 +85,18 @@ class SchoolController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\School  $school
+     * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function destroy($school)
+    public function destroy($subject)
     {
-        $find_school = $this->schoolService->find($school);
+        $find_subject = $this->subjectService->find($subject);
 
-        if(!$find_school){
+        if(!$find_subject){
             return response(['message' => 'Resource Not Found']);
         }
         
-        $data = $this->schoolService->destroy($school);
+        $data = $this->subjectService->destroy($subject);
 
         return response($data);
     }
