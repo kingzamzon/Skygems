@@ -23,7 +23,17 @@ Route::prefix('v1')->group(function() {
 	/**
 	 * Authentication routes
 	 */
-	Route::post('/register', 'Api\AuthController@register');
-    ROute::post('/login','Api\AuthController@login');
+	Route::post('register', 'Api\AuthController@register');
+	ROute::post('login','Api\AuthController@login');
+	
+	Route::group(['middleware' => 'auth:api'], function() {
+
+		Route::post('logout', 'Api\AuthController@logout');
+
+		/**
+         * School Route
+         */
+        Route::resource('schools','Api\SchoolController');
+	});
     
 });

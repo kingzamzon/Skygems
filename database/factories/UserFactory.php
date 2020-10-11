@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\User;
+use App\School;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -25,5 +26,11 @@ $factory->define(User::class, function (Faker $faker) {
         'username' => $faker->unique()->username,
         'password' => bcrypt('password'), // password
         'remember_token' => Str::random(10),
+    ];
+});
+
+$factory->define(School::class, function (Faker $faker) {
+    return [
+        'name' => $faker->randomElement(['Unilag','Uniben'])
     ];
 });
