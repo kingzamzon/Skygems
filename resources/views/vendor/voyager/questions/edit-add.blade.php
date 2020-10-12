@@ -7,7 +7,7 @@
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
 @stop
 
 @section('page_title', __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular'))
@@ -100,7 +100,7 @@
 
                             <div class="form-group">
                                 <label for="body">Question</label>
-                                <textarea id="editor" name="question_name"  placeholder="What the question??" rows="9" class="form-control" required>{!! $edit ? $dataTypeContent->question_name :  old('question_name') !!}
+                                <textarea id="editor" name="question_name"  placeholder="What the question??" rows="9" class="form-control richTextBox" required>{!! $edit ? $dataTypeContent->question_name :  old('question_name') !!}
                                 </textarea>      
                             </div>
 
@@ -171,6 +171,16 @@
 @stop
 
 @section('javascript')
+<script>
+    var additionalConfig = {
+            min_height: 100,
+        }
+
+    $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
+
+    tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
+
+</script>
    <script>
        var edit = '{{ $edit  }}';
        var selected_category = parseInt("{{ $dataTypeContent->category_id }}");
@@ -250,7 +260,7 @@
                     <div class="form-group">
                     <label for="option_name">Option </label>
                     <input type="text" name="option_name[]" id="option_name${count}"
-                            class="form-control option_name" placeholder="Option ${count}">
+                            class="form-control option_name richTextBox" placeholder="Option ${count}">
                     </div>
                     <div class="form-group">
                         <input type="radio" name="option_answer" class="form-check-input" id="option_answer${count}" value="${count - 1}">

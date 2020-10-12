@@ -5,6 +5,7 @@ namespace App;
 use App\School;
 use App\Subject;
 use App\Category;
+use App\Option;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -43,5 +44,13 @@ class Question extends Model
     public function Category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Question has many option
+     */
+    public function option()
+    {
+        return $this->hasMany(Option::class);
     }
 }
