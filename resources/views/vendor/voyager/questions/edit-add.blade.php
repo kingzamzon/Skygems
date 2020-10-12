@@ -100,7 +100,7 @@
 
                             <div class="form-group">
                                 <label for="body">Question</label>
-                                <textarea id="editor" name="question_name"  placeholder="What the question??" rows="9" class="form-control richTextBox" required>{!! $edit ? $dataTypeContent->question_name :  old('question_name') !!}
+                                <textarea name="question_name"  placeholder="What the question??" rows="9" class="form-control richTextBox" required>{!! $edit ? $dataTypeContent->question_name :  old('question_name') !!}
                                 </textarea>      
                             </div>
 
@@ -171,6 +171,7 @@
 @stop
 
 @section('javascript')
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 <script>
     var additionalConfig = {
             min_height: 100,
@@ -259,8 +260,9 @@
                 <div id="option_${count}" class="ola mt-5">
                     <div class="form-group">
                     <label for="option_name">Option </label>
-                    <input type="text" name="option_name[]" id="option_name${count}"
-                            class="form-control option_name richTextBox" placeholder="Option ${count}">
+                    <textarea id="option_name${count}" name="option_name[]"  placeholder="Description..." class="form-control">
+                                    
+                                </textarea>   
                     </div>
                     <div class="form-group">
                         <input type="radio" name="option_answer" class="form-check-input" id="option_answer${count}" value="${count - 1}">
@@ -274,6 +276,10 @@
                     <button type="submit" id="submit" class="btn btn-danger mb-5" onclick="removeLine(option_${count})">Delete</button>
                 </div>
             `)
+                CKEDITOR.replace(`option_name${count}`, {
+                    width: '95%',
+                    height: 100
+                });
             checkboxCounter();
             });
 
@@ -320,9 +326,9 @@
                                 <label for="option_name">Option </label>
 
                                 <input type="hidden" name="option_id[]" id="option_id${value.id}" class="form-control option_id" value="${value.id}">
-
-                                <input type="text" name="option_name[]" id="option_name${value.id}"
-                                        class="form-control option_name" placeholder="Option " value="${value.name}">
+                                <textarea id="option_name${value.id}" name="option_name[]"  placeholder="Description..." class="form-control">
+                                    ${value.name}
+                                </textarea>     
                                 </div>
                                 <div class="form-group">
                                     <input type="radio" name="option_answer" class="form-check-input" id="option_answer${value.id}" value="${i}" ${selected}>
@@ -335,6 +341,10 @@
                                 </div>
                                 <button type="submit" id="submit" class="btn btn-danger mb-5" onclick="removeAvailableLine(product_${value.id}, ${value.id}, ${question_id})">Delete</button>
                             </div>`)
+                            CKEDITOR.replace(`option_name${value.id}`, {
+                                width: '95%',
+                                height: 100
+                            });
                             });
                     },
                     error: function(err) {
@@ -373,4 +383,6 @@
 
         }
    </script>
+   
+
 @stop
