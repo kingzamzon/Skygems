@@ -30,7 +30,7 @@ Route::prefix('v1')->group(function() {
 	Route::get('subjects', 'Api\SubjectController@index')->name('subjects.index');
 	Route::get('category', 'Api\CategoryController@index')->name('category.index');
 
-	Route::get('questions', 'Api\QuestionController@index')->name('questions.index');
+	Route::post('questions', 'Api\QuestionController@index')->name('questions.index');
 
 	Route::get('question/{id}/options','VoyagerQuestionController@getQuestionOptions')->name('questionOptions');
 
@@ -55,11 +55,6 @@ Route::prefix('v1')->group(function() {
          * School Route
          */
 		Route::resource('category','Api\CategoryController', ['except' => ['index']]);
-		
-		/**
-         * Question Route
-         */
-        Route::resource('questions','Api\QuestionController', ['except' => ['index']]);
 	});
     
 });
