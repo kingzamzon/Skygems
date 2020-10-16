@@ -17,7 +17,7 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'username', 'password'
+        'name', 'email', 'phone', 'username', 'password', 'role_id'
     ];
 
     /**
@@ -37,4 +37,9 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeIsTutor($query)
+    {
+        $query->where('role_id', 3);
+    }
 }
