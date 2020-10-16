@@ -29,6 +29,7 @@ Route::prefix('v1')->group(function() {
 	Route::get('schools', 'Api\SchoolController@index')->name('schools.index');
 	Route::get('subjects', 'Api\SubjectController@index')->name('subjects.index');
 	Route::get('category', 'Api\CategoryController@index')->name('category.index');
+	Route::get('tutors', 'Api\TutorController@index')->name('category.index');
 
 	Route::post('questions', 'Api\QuestionController@index')->name('questions.index');
 
@@ -53,6 +54,11 @@ Route::prefix('v1')->group(function() {
 		
 		/**
          * School Route
+         */
+		Route::resource('category','Api\CategoryController', ['except' => ['index']]);
+
+		/**
+         * Tutors Route
          */
 		Route::resource('category','Api\CategoryController', ['except' => ['index']]);
 	});
