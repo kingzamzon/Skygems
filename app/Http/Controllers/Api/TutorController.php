@@ -55,9 +55,11 @@ class TutorController extends Controller
      * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function show(Tutor $tutor)
+    public function show($tutor)
     {
-        //
+        $data = $this->tutorService->find($tutor);
+
+        return response($data);
     }
 
     /**

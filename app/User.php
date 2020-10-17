@@ -42,4 +42,8 @@ class User extends \TCG\Voyager\Models\User
     {
         $query->where('role_id', 3);
     }
+
+    public function getAvatarAttribute($value){
+        return url('storage/'.$value);
+    }
 }

@@ -60,7 +60,7 @@ Route::prefix('v1')->group(function() {
 		/**
          * Tutors Route
          */
-		Route::resource('category','Api\CategoryController', ['except' => ['index']]);
+		Route::resource('tutors','Api\TutorController', ['except' => ['index']]);
 	});
     
 });

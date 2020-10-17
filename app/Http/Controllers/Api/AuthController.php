@@ -15,7 +15,8 @@ class AuthController extends Controller
             "name" => $request->get('name'),
             "email" => $request->get('email'),
             "phone" => $request->get('phone'),
-            "username" => $request->get('username')
+            "username" => $request->get('username'),
+            "role_id" => $request->get('role'),
         ];
 
         $validateData['password'] = bcrypt($request->password);
