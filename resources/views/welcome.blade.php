@@ -76,8 +76,8 @@
                 <div class="row align-items-center justify-content-lg-between justify-content-md-center justify-content-sm-center">
                     <div class="col-md-12 col-lg-6">
                         <div class="hero-slider-content text-white py-5">
-                            <h1 class="text-white">Best Way to Connect with Your Customers</h1>
-                            <p class="lead">Holisticly procrastinate mission-critical convergence with reliable customer service. Assertively underwhelm idea-sharing for impactful solutions.</p>
+                            <h1 class="text-white">SkyGates CBT Plus</h1>
+                            <p class="lead">A professionally packaged excellent driven test and tutorial kits.</p>
 
                             <div class="action-btns mt-4">
                                 <ul class="list-inline">
