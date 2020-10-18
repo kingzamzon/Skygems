@@ -61,6 +61,11 @@ Route::prefix('v1')->group(function() {
          * Tutors Route
          */
 		Route::resource('tutors','Api\TutorController', ['except' => ['index']]);
+
+		/**
+         * Activation Route
+         */
+		Route::resource('activation','Api\ActivationController');
 	});
     
 });

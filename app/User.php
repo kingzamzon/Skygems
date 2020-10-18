@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Activation;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -45,5 +46,13 @@ class User extends \TCG\Voyager\Models\User
 
     public function getAvatarAttribute($value){
         return url('storage/'.$value);
+    }
+
+    /**
+    * Category has many questions
+    */
+    public function activation()
+    {
+        return $this->hasMany(Activation::class);
     }
 }
