@@ -419,7 +419,6 @@
                         <img src="{{ asset('assets/img/03.png') }}" class="img-fluid" alt="screenshots" />
                         <img src="{{ asset('assets/img/04.png') }}" class="img-fluid" alt="screenshots" />
                         <img src="{{ asset('assets/img/05.png') }}" class="img-fluid" alt="screenshots" />
-                        <img src="{{ asset('assets/img/01.png') }}" class="img-fluid" alt="screenshots" />
                     </div>
                 </div>
                 <!--end app screen carousel-->
