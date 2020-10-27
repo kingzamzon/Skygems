@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/onboard', function () {
+    return view('onboard');
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
