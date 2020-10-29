@@ -72,6 +72,11 @@ Route::prefix('v1')->group(function() {
          * Activation Route
          */
 		Route::resource('activation','Api\ActivationController');
+
+		/**
+         * School Route
+         */
+		Route::resource('scores','Api\ScoreController', ['only' => ['index', 'store']]);
 	});
     
 });
