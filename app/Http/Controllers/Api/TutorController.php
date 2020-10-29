@@ -4,15 +4,19 @@ namespace App\Http\Controllers\Api;
 
 use App\Tutor;
 use Illuminate\Http\Request;
+use App\Services\UserService;
 use App\Services\TutorService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterTutorRequest;
+use Illuminate\Validation\Validator; 
 
 class TutorController extends Controller
 {
-    protected $tutorService;
+    protected $userService, $tutorService;
 
-    public function __construct(TutorService $tutorService)
+    public function __construct(UserService $userService, TutorService $tutorService)
     {
+        $this->userService = $userService;
         $this->tutorService = $tutorService;
     }
 
@@ -44,9 +48,40 @@ class TutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterTutorRequest $request)
     {
-        //
+        // return redirect()->back();
+        // return $request->all();
+
+        $data = [
+            "name" => $request->get('name'),
+            "email" => $request->get('email'),
+            "phone" => $request->get('phone'),
+            "username" => $request->get('username'),
+            "role_id" => "3",
+        ];
+
+        $data['password'] = bcrypt($request->password);
+
+        # create user
+        $user = $this->userService->create($data);
+
+        $this->tutorService->create([
+            'user_id' => $user->id,
+            'subject' => $request->get('subject'), 
+            'class_type' => $request->get('class_type'),
+            'rate_hour' => $request->get('rate_hour'),
+            'class_held' => $request->get('class_held'),
+            'language' => $request->get('language'),
+            'tutor_background' => $request->get('tutor_background'),
+            'teaching_methodology' => $request->get('teaching_methodology'),
+            'gender' => $request->get('gender'),
+            'address' => $request->get('address')
+        ]);
+        
+        #redirect to congratulation
+        $success = "Successfully Registered";
+        return redirect( route('onboard.index') )->with(['data' => $success]);
     }
 
     /**

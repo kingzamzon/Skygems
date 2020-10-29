@@ -41,7 +41,7 @@ class Question extends Model
     /**
      * Question belongs to category
      */
-    public function Category()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

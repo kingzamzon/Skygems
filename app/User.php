@@ -7,10 +7,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends \TCG\Voyager\Models\User
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -39,10 +40,6 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
-    public function scopeIsTutor($query)
-    {
-        $query->where('role_id', 3);
-    }
 
     public function getAvatarAttribute($value){
         return url('storage/'.$value);
@@ -55,4 +52,5 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Activation::class);
     }
+
 }

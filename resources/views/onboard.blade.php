@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<title>Tutors on boarding</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{{ asset('tutors/assets/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('tutor/assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="{{ asset('tutors/assets/css/animate.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('tutors/assets/css/fontawesome-all.css') }}">
-	<link rel="stylesheet" href="{{ asset('tutors/assets/css/style.css') }}">
-
-	<link rel="stylesheet" type="text/css" href="{{ asset('tutors/assets/css/colors/switch.css') }}">
+	<link rel="stylesheet" href="{{ asset('tutor/assets/css/animate.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('tutor/assets/css/fontawesome-all.css') }}">
+	<link rel="stylesheet" href="{{ asset('tutor/assets/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('tutor/assets/css/colors/switch.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 	<div class="wrapper">
 		<div class="steps-area steps-area-fixed">
 			<div class="image-holder">
-				<img src="{{ asset('tutors/assets/img/side-img.jpg') }}" alt="">
+				<img src="{{ asset('tutor/assets/img/side-img.jpg') }}" alt="">
 			</div>
 			<div class="steps clearfix">
 				<ul class="tablist multisteps-form__progress">
@@ -42,8 +42,10 @@
 					</li>
 				</ul>
 			</div>
-		</div>
-		<form class="multisteps-form__form" action="#" id="wizard" method="POST">
+        </div>
+      
+        <form class="multisteps-form__form" action="{{ route('tutors.store') }}" id="wizard" enctype="multipart/form-data" method="POST">
+            @csrf
 			<div class="form-area position-relative">
 				<!-- div 1 -->
 				<div class="multisteps-form__panel js-active" data-animation="slideHorz">
@@ -51,9 +53,19 @@
 						<div class="inner pb-50 clearfix">
 							<div class="form-content pera-content">
 								<div class="step-inner-content">
+                                   
 									<span class="step-no">Step 1</span>
-									<h2>What Subject do you wish to teach?</h2>
+									<h2>What subject do you wish to teach?</h2>
 									<div class="step-box">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
 										<div class="budget-area">
 											<select name="subject" class="valid" aria-invalid="false">
 												<option>Biology</option>
@@ -99,7 +111,7 @@
 											</div>
 											<div class="plan-text">
 												<h3>Individual class</h3>
-												<input type="radio" name="your_plan" value="Unlimited Plan" checked="">
+												<input type="radio" name="class_type" value="Individual class" checked="">
 											</div>
 										</div>
 										<div class="plan-icon-text text-center">
@@ -108,7 +120,7 @@
 											</div>
 											<div class="plan-text">
 												<h3>Group class</h3>
-												<input type="radio" name="your_plan" value="Unlimited Plan">
+												<input type="radio" name="class_type" value="Group class">
 											</div>
 										</div>
 									</div>
@@ -152,14 +164,14 @@
 													<b> &#8358; </b> 
 												</span>
 											  </div>
-											<input type="text" name="rate_hour" class="form-control" minlength="2" placeholder="114*" required>
+											<input type="text" name="rate_hour" class="form-control" minlength="2" placeholder="114*" value="{{ old('rate_hour') }}">
 										</div>
 										<div class="services-select-option">
 											<p>Where will your class be held?</p>
 											<ul>
 												<li class="bg-white active">
 													<label>I can receive at home
-														<input type="radio" name="class_held" value="Receive Home" checked="">
+														<input type="radio" name="class_held" value="Receive Home" checked="" >
 													</label>
 												</li>
 												<li class="bg-white">
@@ -176,7 +188,7 @@
 										</div>
 										<div class="language-select d-none" select-language>
 											<p>In what language can you give online tution: </p>
-											<select name="languages" class="valid" aria-invalid="false">
+											<select name="language" class="valid" aria-invalid="false">
 												<option>English</option>
 												<option>Arabic</option>
 												<option>Spanish</option>
@@ -219,13 +231,13 @@
 									<div class="budget-area">
 										<p>What's your background? </p>
 										<div class="comment-box">
-											<textarea name="extra-message" placeholder="I am a teacher ... I have been given private lesson since .... I have degree in ..."></textarea>
+											<textarea name="tutor_background" placeholder="I am a teacher ... I have been given private lesson since .... I have degree in ...">{{ old('tutor_background') }}</textarea>
 										</div>
 									</div>
 									<div class="budget-area">
 										<p>What's your teaching methodology? </p>
 										<div class="comment-box">
-											<textarea name="extra-message" placeholder="My teaching method is ... I based my class on ... I approach each topic by ...."></textarea>
+											<textarea name="teaching_methodology" placeholder="My teaching method is ... I based my class on ... I approach each topic by ....">{{ old('teaching_methodology') }}</textarea>
 										</div>
 									</div>
 
@@ -263,32 +275,28 @@
 									
 									<div class="step-content-field">
 										<div class="form-inner-area">
-											<input type="text" name="full_name" class="form-control required" minlength="2" placeholder="First and last name *" required>
-											<input type="email" name="email" class="form-control required" placeholder="Email Address *" required>
-											<input type="text" name="phone" placeholder="Phone">
-											<input type="text" name="username" placeholder="username*">
-											<input type="password" name="password" placeholder="password*">
-										</div>
-										<div class="gender-selection">
-											<h3>Gender:</h3>
-											<div class="services-select-option">
-												<ul>
-													<li class="bg-white active">
-														<label>Male
-															<input type="radio" name="gender" value="Male"></label>
-													</li>
-													<li class="bg-white">
-														<label>Female
-															<input type="radio" name="gender" value="Female"></label>
-													</li>
-												</ul>
-											</div>
+                                            <input type="text" name="name" class="form-control required @error('name') is-invalid @enderror" minlength="2" placeholder="First and last name *" value="{{ old('name') }}" required>
+                                            
+											<input type="email" name="email"placeholder="Email Address">
+                                            <input type="text" name="phone"  class="form-control required @error('phone') is-invalid @enderror" minlength="10" placeholder="Phone*"  value="{{ old('phone') }}" required>
+                                            
+                                            <input type="text" name="username" class="form-control required @error('username') is-invalid @enderror" placeholder="username*" value="{{ old('username') }}" required>
+                                            
+											<input type="password" name="password" class="form-control required @error('password') is-invalid @enderror" placeholder="password*" value="{{ old('password') }}" required>
+                                        </div>
+
+                                        <div class="budget-area">
+											<p>Gender: </p>
+											<select name="gender">
+												<option>Male</option>
+												<option>Female</option>
+											</select>
 										</div>
 
 										<div class="address-selection">
-											<h3>Your address:</h3>
-											<div class="form-inner-area">
-												<input type="text" name="address" class="form-control" minlength="20" placeholder="Your address*">
+											<h3>Your address*:</h3>
+											<div class="form-inner-area" style="margin-top: 10px;">
+												<input type="text" name="address" class="form-control" minlength="20" placeholder="Your address*" value="{{ old('address') }}">
 												<span>This address will never appear on the website. It will only be communicated to students whose lesson request you accept.</span>
 											</div>
 										</div>
@@ -296,8 +304,6 @@
 										<div class="upload-documents">
 											<h3>Upload Documents:</h3>
 											<div class="upload-araa bg-white">
-												<input type="hidden" value="" name="fileContent" id="fileContent">
-												<input type="hidden" value="" name="filename" id="filename">
 												<div class="upload-icon float-left">
 													<i class="fas fa-cloud-upload-alt"></i>
 												</div>
@@ -306,7 +312,7 @@
 												</div>
 												<div class="upload-option text-center">
 													<label for="attach">Upload The Documents</label>
-													<input id="attach" style="visibility:hidden;" type="file">
+													<input id="attach" style="visibility:hidden;" name="file_attached" type="file">
 												</div>
 											</div>
 										</div>
@@ -327,34 +333,28 @@
 			</div>
 		</form>
 	</div>
-	<script src="{{ asset('tutors/assets/js/jquery-3.3.1.min.js') }}"></script>
-	<script src="{{ asset('tutors/assets/js/jquery.validate.min.js') }}"></script>
+	<script src="{{ asset('tutor/assets/js/jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ asset('tutor/assets/js/jquery.validate.min.js') }}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-	<script src="{{ asset('tutors/assets/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('tutors/assets/js/main.js') }}"></script>
-	<script src="{{ asset('tutors/assets/js/switch.js') }}"></script>
+	<script src="{{ asset('tutor/assets/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('tutor/assets/js/main.js') }}"></script>
+	<script src="{{ asset('tutor/assets/js/switch.js') }}"></script>
 	<script>
-		$("#files").change(function() {
-			filename = this.files[0].name
-			// console.log(filename);
-		});
+		// $("#files").change(function() {
+		// 	filename = this.files[0].name
+		// 	// console.log(filename);
+		// });
 
-		function UploadFile() {
-			var reader = new FileReader();
-			var file = document.getElementById('attach').files[0];
-			reader.onload = function() {
-				document.getElementById('fileContent').value = reader.result;
-				document.getElementById('filename').value = file.name;
-				document.getElementById('wizard').submit();
-			}
-			reader.readAsDataURL(file);
-		}
-
-		$('#submit_form').click(function(event) {
-			event.preventDefault()
-			var form_data = $('#wizard').serialize();
-			console.log(form_data)
-		})
+		// function UploadFile() {
+		// 	var reader = new FileReader();
+		// 	var file = document.getElementById('attach').files[0];
+		// 	reader.onload = function() {
+		// 		document.getElementById('fileContent').value = reader.result;
+		// 		document.getElementById('filename').value = file.name;
+		// 		document.getElementById('wizard').submit();
+		// 	}
+		// 	reader.readAsDataURL(file);
+		// }
 
 		$('[name="class_held"]').change(function (event) {
 			var selected = $(this).val()

@@ -19,8 +19,9 @@ Route::get('/', function () {
 
 Route::get('/onboard', function () {
     return view('onboard');
-});
+})->name('onboard.index');
 
+Route::post('tutors', 'Api\TutorController@store')->name('tutors.store');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

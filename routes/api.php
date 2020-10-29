@@ -26,10 +26,16 @@ Route::prefix('v1')->group(function() {
 	Route::post('register', 'Api\AuthController@register');
 	Route::post('login','Api\AuthController@login');
 
+	/**
+	 * Tutors
+	 */
+	Route::get('tutors', 'Api\TutorController@index')->name('tutors.index');
+	
+
+
 	Route::get('schools', 'Api\SchoolController@index')->name('schools.index');
 	Route::get('subjects', 'Api\SubjectController@index')->name('subjects.index');
 	Route::get('category', 'Api\CategoryController@index')->name('category.index');
-	Route::get('tutors', 'Api\TutorController@index')->name('category.index');
 
 	Route::post('questions', 'Api\QuestionController@index')->name('questions.index');
 
@@ -60,7 +66,7 @@ Route::prefix('v1')->group(function() {
 		/**
          * Tutors Route
          */
-		Route::resource('tutors','Api\TutorController', ['except' => ['index']]);
+		Route::resource('tutors','Api\TutorController', ['except' => ['index', 'store']]);
 
 		/**
          * Activation Route

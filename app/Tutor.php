@@ -2,18 +2,35 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Tutor extends User
+class Tutor extends Model
 {
-    protected $table = 'users';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 
+        'subject', 
+        'class_type', 
+        'rate_hour', 
+        'class_held', 
+        'language', 
+        'tutor_background', 
+        'teaching_methodology', 
+        'gender', 
+        'address'
+    ];
 
-    public static function boot()
+    /**
+     * Tutor belongs to user
+     */
+    public function user()
     {
-        parent::boot();
-
-        static::addGlobalScope(function ($query) {
-            $query->where('role_id', 3);
-        });
+        return $this->belongsTo(User::class);
     }
 }
