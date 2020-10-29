@@ -54,6 +54,8 @@
                         <li><a href="#screenshots" class="page-scroll">Screenshots</a></li>
                         <li><a href="#pricing" class="page-scroll">Pricing</a></li>
                         <li><a href="#contact" class="page-scroll">Contact</a></li>
+                        <li><a href="{{route('onboard.index')}}" class="page-scroll text-white">Become a Tutor</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -126,8 +128,8 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
                         <div class="section-heading">
-                            <h2>We Will Helps You to Build Beautiful App</h2>
-                            <p>Uniquely repurpose strategic core competencies with progressive content. Assertively transition ethical imperatives and collaborative manufactured products. </p>
+                            <h2>Quick walk through</h2>
+                            <p>SkyGates CBT Plus is a professionally packaged excellent driven test and tutorial kits</p>
                         </div>
                     </div>
                 </div>
@@ -139,7 +141,7 @@
                                     <span class="fas fa-concierge-bell icon-size-md color-secondary"></span>
                                 </div>
                                 <div class="pt-2 pb-3">
-                                    <h5>Modular</h5>
+                                    <h5>Study</h5>
                                     <p class="mb-0">All components are built to be used in combination.</p>
                                 </div>
                             </div>
@@ -149,10 +151,10 @@
                         <div class="card border-0 single-promo-card single-promo-hover-2 p-2 mt-4">
                             <div class="card-body">
                                 <div class="pb-2">
-                                    <span class="fas fa-window-restore icon-size-md color-secondary"></span>
+                                    <span class="fas fa-edit icon-size-md color-secondary"></span>
                                 </div>
                                 <div class="pt-2 pb-3">
-                                    <h5>Responsive</h5>
+                                    <h5>Past Questions</h5>
                                     <p class="mb-0">Quick is optimized to work for most devices.</p>
                                 </div>
                             </div>
@@ -165,7 +167,7 @@
                                     <span class="fas fa-sync-alt icon-size-md color-secondary"></span>
                                 </div>
                                 <div class="pt-2 pb-3">
-                                    <h5>Scalable</h5>
+                                    <h5>Book Tutor </h5>
                                     <p class="mb-0">Remain consistent while developing new features.</p>
                                 </div>
                             </div>
@@ -175,11 +177,11 @@
                         <div class="card border-0 single-promo-card single-promo-hover-2 p-2 mt-4">
                             <div class="card-body">
                                 <div class="pb-2">
-                                    <span class="fas fa-bezier-curve icon-size-md color-secondary"></span>
+                                    <span class="fas fa-chart-area icon-size-md color-secondary"></span>
                                 </div>
                                 <div class="pt-2 pb-3">
-                                    <h5>Customizable</h5>
-                                    <p class="mb-0">Change a few variables and the whole theme adapts.</p>
+                                    <h5>Progress</h5>
+                                    <p class="mb-0">Track your learning progress.</p>
                                 </div>
                             </div>
                         </div>
@@ -203,10 +205,10 @@
                             <h2>Use Our App to Manage Everything.</h2>
 
                             <ul class="check-list-wrap pt-3">
-                                <li><strong>Big Data Consulting</strong> – Holisticly leverage existing tactical core competencies with error-free methods of empowerment. Holisticly foster client-centric partnerships.</li>
-                                <li><strong>Machine Learning</strong> – Assertively engage backend web-readiness through efficient web services. Enthusiastically innovate frictionless e-commerce after prospective.</li>
-                                <li><strong>Artificial Intelligence</strong> – Dynamically incubate transparent technologies after cost effective action items. Competently promote user-centric sources via empowered experiences.</li>
-                                <li><strong>Big Data Analytics</strong> – Quickly incubate revolutionary data and effective infomediaries. Credibly transform high standards in convergence via market positioning interfaces.</li>
+                                <li><strong>Practive at Your Pace</strong> – Holisticly leverage existing tactical core competencies with error-free methods of empowerment. Holisticly foster client-centric partnerships.</li>
+                                <li><strong>Quick Problem Solution</strong> – Assertively engage backend web-readiness through efficient web services. Enthusiastically innovate frictionless e-commerce after prospective.</li>
+                                <li><strong>Professtional Tutors</strong> – Dynamically incubate transparent technologies after cost effective action items. Competently promote user-centric sources via empowered experiences.</li>
+                                <li><strong>Safe and Secure</strong> – Quickly incubate revolutionary data and effective infomediaries. Credibly transform high standards in convergence via market positioning interfaces.</li>
                             </ul>
                             <div class="action-btns mt-4">
                                 <a href="#" class="btn btn-brand-02 mr-3">Get Start Now</a>
@@ -217,56 +219,8 @@
                 </div>
             </div>
         </section>
-        <section class="position-relative feature-section ptb-100">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md-12 col-lg-6">
-                        <div class="feature-contents section-heading">
-                            <h2>Share Your Photos With Friends Easily</h2>
-                            <p>Objectively deliver professional value with diverse web-readiness.
-                                Collaboratively transition wireless customer service without goal-oriented catalysts for
-                                change. Collaboratively.</p>
-                            <p>Uniquely simplify sustainable applications whereas adaptive schemas. Competently brand performance based content and.</p>
-                            <ul class="dot-circle pt-2">
-                                <li>The only way your business can to the information.</li>
-                                <li>Your app will be used by a host and for different.</li>
-                                <li>Intrinsicly innovate top-line collaborative benefits. </li>
-                                <li>Efficiently redefine value-added sources without.</li>
-                            </ul>
-                            <div class="row pt-3">
-                                <div class="col-4 col-lg-3 border-right">
-                                    <div class="count-data text-center">
-                                        <h4 class="count-number mb-0 color-primary font-weight-bold">1023</h4>
-                                        <span>Customers</span>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-3 border-right">
-                                    <div class="count-data text-center">
-                                        <h4 class="count-number mb-0 color-primary font-weight-bold">5470</h4>
-                                        <span>Downloads</span>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-3 border-right">
-                                    <div class="count-data text-center">
-                                        <h4 class="count-number mb-0 color-primary font-weight-bold">3560</h4>
-                                        <span>Satisfied</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6">
-                        <div class="download-img">
-                            <img src="{{ asset('assets/img/mobile-pana.svg') }}" alt="download" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--about us section end-->
-
         <!--features section start-->
-        <section id="features" class="feature-section ptb-100 gray-light-bg">
+        <section id="features" class="feature-section ptb-100">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-9 col-lg-8">
@@ -296,7 +250,7 @@
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
                                     <span class="fas fa-comment-dots p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Themify Icon</h5>
+                                        <h5 class="mb-2">Book Tutor</h5>
                                         <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
                                     </div>
                                 </div>
@@ -306,7 +260,7 @@
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
                                     <span class="fas fa-eye p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Retina Ready</h5>
+                                        <h5 class="mb-2">Past Question Solutions</h5>
                                         <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
                                     </div>
                                 </div>
@@ -316,7 +270,7 @@
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
                                     <span class="fas fa-thumbs-up p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">W3c Valid Code</h5>
+                                        <h5 class="mb-2">Easy to learn and Use</h5>
                                         <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
                                     </div>
                                 </div>
@@ -326,7 +280,7 @@
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
                                     <span class="fas fa-mobile-alt p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Fully Responsive</h5>
+                                        <h5 class="mb-2">Smart Subscriptions</h5>
                                         <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
                                     </div>
                                 </div>
@@ -336,7 +290,7 @@
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
                                     <span class="fas fa-globe p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Browser Compatibility</h5>
+                                        <h5 class="mb-2">Splendid Support</h5>
                                         <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
                                     </div>
                                 </div>
@@ -377,7 +331,6 @@
                                 <h5>Apple Store</h5>
                             </div>
                             <div class="p-20px">
-                                <p class="m-0px">Seamlessly foster fully researched convergence and interactive resources administrate data.</p>
                                 <a class="btn btn-brand-02 btn-sm btn-rounded" href="#">Download Now</a>
                             </div>
                         </div>
@@ -389,7 +342,6 @@
                                 <h5>Google Play</h5>
                             </div>
                             <div class="p-20px">
-                                <p class="m-0px">Assertively build B2C manufactured products before front-end optimize frictionless communities tailers.</p>
                                 <a class="btn btn-brand-02 btn-sm btn-rounded" href="#">Download Now</a>
                             </div>
                         </div>
@@ -520,50 +472,13 @@
         <section class="position-relative gradient-bg ptb-100">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 col-lg-5 mb-4 mb-sm-4 mb-md-0 mb-lg-0">
-                        <div class="testimonial-heading text-white">
-                            <h2 class="text-white">What Our Client Say About Apdash</h2>
-                            <p>Collaboratively actualize excellent schemas without effective models. Synergistically engineer functionalized applications rather than backend e-commerce.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6">
-                        <div class="testimonial-content-wrap">
-                            <div class="owl-carousel owl-theme client-testimonial-1 dot-indicator testimonial-shape">
-                                <div class="item">
-                                    <div class="testimonial-quote-wrap">
-                                        <div class="media author-info mb-3">
-                                            <div class="author-img mr-3">
-                                                <img src="{{ asset('assets/img/client/3.jpg') }}" alt="client" class="img-fluid">
-                                            </div>
-                                            <div class="media-body text-white">
-                                                <h5 class="mb-0 text-white">Jeremy Jere</h5>
-                                                <span>Team Leader</span>
-                                            </div>
-                                            <i class="fas fa-quote-right text-white"></i>
-                                        </div>
-                                        <div class="client-say text-white">
-                                            <p>Objectively synthesize client-centered e-tailers for maintainable channels. Holisticly administrate customer directed vortals whereas tactical functionalities. Energistically monetize reliable imperatives through client-centric.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="testimonial-quote-wrap">
-                                        <div class="media author-info mb-3">
-                                            <div class="author-img mr-3">
-                                                <img src="{{ asset('assets/img/client/4.jpg') }}" alt="client" class="img-fluid">
-                                            </div>
-                                            <div class="media-body text-white">
-                                                <h5 class="mb-0 text-white">John Charles</h5>
-                                                <span>Marketing Head</span>
-                                            </div>
-                                            <i class="fas fa-quote-right text-white"></i>
-                                        </div>
-                                        <div class="client-say text-white">
-                                            <p>Enthusiastically innovate B2C data without clicks-and-mortar convergence. Monotonectally deliver compelling testing procedures vis-a-vis B2B testing procedures. Competently evisculate integrated resources whereas global.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-md-12">
+                        <div class="justify-content-center">
+                            <h2 class="text-white text-center">Experience in teaching?</h2>
+                            <p class=" text-center mt-5">
+                                <a href="{{route('onboard.index')}}" class="btn btn-brand-02 btn-rounded btn-lg">Apply to tutor</a>
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -647,10 +562,11 @@
                     <div class="col-md-12 col-lg-5 mb-5 mb-md-5 mb-sm-5 mb-lg-0">
                         <div class="contact-us-form gray-light-bg rounded p-5">
                             <h4>Ready to get started?</h4>
-                            <form action="" method="POST" id="contactForm" class="contact-us-form">
+                            <form action="https://formsubmit.co/your@email.com" method="POST" id="contactForm" class="contact-us-form">
                                 <div class="form-row">
                                     <div class="col-12">
                                         <div class="form-group">
+                                            <input type="hidden" name="_subject" value="New Contact from website">
                                             <input type="text" class="form-control" name="name" placeholder="Enter name" required="required">
                                         </div>
                                     </div>
@@ -675,10 +591,29 @@
                     </div>
                     <div class="col-md-12 col-lg-6">
                         <div class="contact-us-content">
-                            <h2>Looking for a excellent Business idea?</h2>
-                            <p class="lead">Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.</p>
-
-                            <a href="#" class="btn btn-outline-brand-01 align-items-center">Get Directions <span class="fas fa-arrow-right pl-2"></span></a>
+                            <h2>Available on your favourite store.</h2>
+                            <div class="action-btns mt-4">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="#" class="d-flex align-items-center app-download-btn btn btn-brand-02 btn-rounded">
+                                            <span class="fab fa-apple icon-size-sm mr-3"></span>
+                                            <div class="download-text text-left">
+                                                <small>Download form</small>
+                                                <h5 class="mb-0">App Store</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="d-flex align-items-center app-download-btn btn btn-brand-02 btn-rounded">
+                                            <span class="fab fa-google-play icon-size-sm mr-3"></span>
+                                            <div class="download-text text-left">
+                                                <small>Download form</small>
+                                                <h5 class="mb-0">Google Play</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
                             <hr class="my-5">
 
@@ -727,7 +662,6 @@
                 <div class="col-md-6 col-lg-7 mb-4 mb-md-0 mb-sm-4 mb-lg-0">
                     <div class="newsletter-content text-white">
                         <h3 class="mb-0 text-white">Subscribe our Newsletter</h3>
-                        <p class="mb-0">We’re a team of non-cynics who truly care for our work.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5">
@@ -747,7 +681,7 @@
                         <h4 class="img-fluid text-white">SkyGatesOnlineAcademy</h4>
                     </a>
                     <br>
-                    <p>Dynamically re-engineer high standards in functiona with alternative paradigms. Conveniently monetize resource maximizing initiatives.</p>
+                    <p>A professionally packaged excellent driven test and tutorial kits.</p>
                     <div class="list-inline social-list-default background-color social-hover-2 mt-2">
                         <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
@@ -770,6 +704,14 @@
                             <ul>
                                 <li>
                                     <a href="#">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <h6 class="text-uppercase">Work with us</h6>
+                            <ul>
+                                <li>
+                                    <a href="{{route('onboard.index')}}">Become a Tutor</a>
                                 </li>
                             </ul>
                         </div>
