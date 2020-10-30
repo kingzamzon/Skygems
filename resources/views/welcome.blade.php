@@ -78,7 +78,7 @@
                 <div class="row align-items-center justify-content-lg-between justify-content-md-center justify-content-sm-center">
                     <div class="col-md-12 col-lg-6">
                         <div class="hero-slider-content text-white py-5">
-                            <h1 class="text-white">SkyGates CBT Plus</h1>
+                            <h1 class="text-white">Skygems CBT Plus</h1>
                             <p class="lead">A professionally packaged excellent driven test and tutorial kits.</p>
 
                             <div class="action-btns mt-4">
@@ -138,11 +138,11 @@
                         <div class="card border-0 single-promo-card single-promo-hover-2 p-2 mt-4">
                             <div class="card-body">
                                 <div class="pb-2">
-                                    <span class="fas fa-concierge-bell icon-size-md color-secondary"></span>
+                                    <span class="fas fa-book-reader icon-size-md color-secondary"></span>
                                 </div>
                                 <div class="pt-2 pb-3">
                                     <h5>Study</h5>
-                                    <p class="mb-0">All components are built to be used in combination.</p>
+                                    <p class="mb-0">All necessary topics needed to pass Nigerian Universities’ entrance examinations, from O-levels to A-levels.</p>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="pt-2 pb-3">
                                     <h5>Past Questions</h5>
-                                    <p class="mb-0">Quick is optimized to work for most devices.</p>
+                                    <p class="mb-0">Practice questions of several years that will adequately prepare you for the exam that you are preparing for.</p>
                                 </div>
                             </div>
                         </div>
@@ -164,11 +164,11 @@
                         <div class="card border-0 single-promo-card single-promo-hover-2 p-2 mt-4">
                             <div class="card-body">
                                 <div class="pb-2">
-                                    <span class="fas fa-sync-alt icon-size-md color-secondary"></span>
+                                    <span class="fas fa-user-alt icon-size-md color-secondary"></span>
                                 </div>
                                 <div class="pt-2 pb-3">
                                     <h5>Book Tutor </h5>
-                                    <p class="mb-0">Remain consistent while developing new features.</p>
+                                    <p class="mb-0">Finding it hard to study on your on? book a tutor from our team of outstanding scholars.</p>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                                 </div>
                                 <div class="pt-2 pb-3">
                                     <h5>Progress</h5>
-                                    <p class="mb-0">Track your learning progress.</p>
+                                    <p class="mb-0">Track how well you are faring in your preparation for your next exam. See your cumulative grade point.</p>
                                 </div>
                             </div>
                         </div>
@@ -202,17 +202,12 @@
                     </div>
                     <div class="col-md-12 col-lg-7">
                         <div class="about-content-left section-heading">
-                            <h2>Use Our App to Manage Everything.</h2>
+                            <h2>Skygems CBT Plus is a professionally packaged excellent driven test and tutorial kits.
+                            </h2>
 
-                            <ul class="check-list-wrap pt-3">
-                                <li><strong>Practive at Your Pace</strong> – Holisticly leverage existing tactical core competencies with error-free methods of empowerment. Holisticly foster client-centric partnerships.</li>
-                                <li><strong>Quick Problem Solution</strong> – Assertively engage backend web-readiness through efficient web services. Enthusiastically innovate frictionless e-commerce after prospective.</li>
-                                <li><strong>Professtional Tutors</strong> – Dynamically incubate transparent technologies after cost effective action items. Competently promote user-centric sources via empowered experiences.</li>
-                                <li><strong>Safe and Secure</strong> – Quickly incubate revolutionary data and effective infomediaries. Credibly transform high standards in convergence via market positioning interfaces.</li>
-                            </ul>
                             <div class="action-btns mt-4">
-                                <a href="#" class="btn btn-brand-02 mr-3">Get Start Now</a>
-                                <a href="#" class="btn btn-outline-brand-02">Learn More</a>
+                                <a href="#contact" class="btn btn-brand-02 mr-3">Get Start Now</a>
+                                <a href="#features" class="btn btn-outline-brand-02">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +221,7 @@
                     <div class="col-md-9 col-lg-8">
                         <div class="section-heading text-center mb-5">
                             <h2>App Features</h2>
-                            <p class="text-muted para-desc mb-0 mx-auto">Start working with that can provide everything you need to generate awareness, drive traffic, connect. Efficiently transform granular value with client-focused content. Energistically redefine market.</p>
+                            <p class="text-muted para-desc mb-0 mx-auto">Skygems CBT Plus allows preparation and testing of students for the most important examination right from the comfort of their mobile device.</p>
                         </div>
                     </div>
                     <!--end col-->
@@ -238,60 +233,60 @@
                         <div class="row align-items-center">
                             <div class="col-md-6 col-12">
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="fas fa-desktop p-3 mr-4 mt-1 rounded-circle float-left"></span>
+                                    <span class="fas fa-book-reader p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Use On Any Device</h5>
-                                        <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
+                                        <h5 class="mb-2">Study</h5>
+                                        <p>All necessary topics needed to pass Nigerian Universities’ entrance examinations, from O-levels to A-levels.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-12">
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="fas fa-comment-dots p-3 mr-4 mt-1 rounded-circle float-left"></span>
+                                    <span class="fas fa-user p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
                                         <h5 class="mb-2">Book Tutor</h5>
-                                        <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
+                                        <p>Finding it hard to study on your on? book a tutor from our team of outstanding scholars.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-12">
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="fas fa-eye p-3 mr-4 mt-1 rounded-circle float-left"></span>
+                                    <span class="fas fa-edit p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Past Question Solutions</h5>
-                                        <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
+                                        <h5 class="mb-2">Past Questions</h5>
+                                        <p>Practice questions of several years that will adequately prepare you for the exam that you are preparing for.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-12">
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="fas fa-thumbs-up p-3 mr-4 mt-1 rounded-circle float-left"></span>
+                                    <span class="fas fa-chart-area p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
-                                        <h5 class="mb-2">Easy to learn and Use</h5>
-                                        <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
+                                        <h5 class="mb-2">Progress</h5>
+                                        <p>Track how well you are faring in your preparation for your next exam. See your cumulative grade point.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-12">
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="fas fa-mobile-alt p-3 mr-4 mt-1 rounded-circle float-left"></span>
+                                    <span class="fas fa-credit-card p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
                                         <h5 class="mb-2">Smart Subscriptions</h5>
-                                        <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
+                                        <p>Easily subscribe with your debit card without leaving your location.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-12">
                                 <div class="features-single-wrap mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="fas fa-globe p-3 mr-4 mt-1 rounded-circle float-left"></span>
+                                    <span class="fas fa-headset p-3 mr-4 mt-1 rounded-circle float-left"></span>
                                     <div class="features-single-content d-block overflow-hidden">
                                         <h5 class="mb-2">Splendid Support</h5>
-                                        <p>composed in a pseudo-Latin language which more or less pseudo-Latin language corresponds.</p>
+                                        <p>We have a ready team who attend to all your queries, just contact us where necessary.</p>
                                     </div>
                                 </div>
                             </div>
@@ -302,54 +297,10 @@
                         <img src="{{ asset('assets/img/app-mobile-image.png') }}" class="img-fluid mx-auto d-lg-block d-none" alt="app screen">
                     </div>
                 </div>
+                
             </div>
         </section>
         <!--features section end-->
-
-        <!--video with download start-->
-        <section class="position-relative overflow-hidden ptb-100">
-            <div class="mask-65"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-9 col-lg-8">
-                        <div class="section-heading text-center text-white">
-                            <h2 class="text-white">The Most Uses App Platform</h2>
-                            <p>Start working with that can provide everything you need to generate awareness, drive traffic, connect. Efficiently transform granular value with client-focused content.</p>
-                        </div>
-                        <div class="video-promo-content my-5 pb-4">
-                            <a href="#" class="popup-youtube video-play-icon text-center m-auto"><span class="fas fa-play"></span> </a>
-                        </div>
-                    </div>
-                    <!--end col-->
-                </div>
-                <!--end row-->
-                <div class="row justify-content-md-center justify-content-sm-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="bg-white p-5 rounded text-center shadow mt-lg-0 mt-4">
-                            <div class="icon-text-wrap">
-                                <i class="fab fa-apple icon-size-md color-primary mb-2"></i>
-                                <h5>Apple Store</h5>
-                            </div>
-                            <div class="p-20px">
-                                <a class="btn btn-brand-02 btn-sm btn-rounded" href="#">Download Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="bg-white p-5 rounded text-center shadow mt-lg-0 mt-4">
-                            <div class="icon-text-wrap">
-                                <i class="fab fa-google-play icon-size-md color-primary mb-2"></i>
-                                <h5>Google Play</h5>
-                            </div>
-                            <div class="p-20px">
-                                <a class="btn btn-brand-02 btn-sm btn-rounded" href="#">Download Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--video with download end-->
 
         <!--screenshots section start-->
         <section id="screenshots" class="screenshots-section pb-100  ">
@@ -482,6 +433,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="row justify-content-md-center justify-content-sm-center">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="bg-white p-5 rounded text-center shadow mt-lg-0 mt-4">
+                            <div class="icon-text-wrap">
+                                <i class="fab fa-apple icon-size-md color-primary mb-2"></i>
+                                <h5>Apple Store</h5>
+                            </div>
+                            <div class="p-20px">
+                                <a class="btn btn-brand-02 btn-sm btn-rounded" href="#">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="bg-white p-5 rounded text-center shadow mt-lg-0 mt-4">
+                            <div class="icon-text-wrap">
+                                <i class="fab fa-google-play icon-size-md color-primary mb-2"></i>
+                                <h5>Google Play</h5>
+                            </div>
+                            <div class="p-20px">
+                                <a class="btn btn-brand-02 btn-sm btn-rounded" href="#">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!--testimonial section end-->
@@ -507,41 +482,47 @@
                         <div id="accordion" class="accordion faq-wrap">
                             <div class="card mb-3">
                                 <a class="card-header " data-toggle="collapse" href="#collapse0" aria-expanded="false">
-                                    <h6 class="mb-0 d-inline-block">Which license do I need?</h6>
+                                    <h6 class="mb-0 d-inline-block">What is the cost of this service?</h6>
                                 </a>
                                 <div id="collapse0" class="collapse show" data-parent="#accordion" style="">
                                     <div class="card-body white-bg">
-                                        <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#x27;t heard of them accusamus labore sustainable VHS. </p>
+                                        <p>
+                                            Skygems CBT Plus comes in flexible plans: <br>
+                                            &#x20A6;259<span>.99</span>/Preminum <br>
+                                            &#x20A6;259<span>.99</span>/Unlimited
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card my-3">
                                 <a class="card-header collapsed" data-toggle="collapse" href="#collapse1" aria-expanded="false">
-                                    <h6 class="mb-0 d-inline-block">How do I get access to a theme?</h6>
+                                    <h6 class="mb-0 d-inline-block">How will get access to this service?</h6>
                                 </a>
                                 <div id="collapse1" class="collapse " data-parent="#accordion" style="">
                                     <div class="card-body white-bg">
-                                        <p>Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#x27;t heard of them accusamus. Seamlessly optimize empowered testing procedures before revolutionary processes. Progressively facilitate client-centered technologies whereas extensive users. Authoritatively. </p>
+                                        <p>Download Skygems CBT Plus mobile application on the app store of your choice using a data enabled device.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card my-3">
                                 <a class="card-header collapsed" data-toggle="collapse" href="#collapse2" aria-expanded="false">
-                                    <h6 class="mb-0 d-inline-block">How do I see previous orders?</h6>
+                                    <h6 class="mb-0 d-inline-block">How do I subscribe?</h6>
                                 </a>
                                 <div id="collapse2" class="collapse " data-parent="#accordion" style="">
                                     <div class="card-body white-bg">
-                                        <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#x27;t heard of them accusamus labore sustainable VHS. </p>
+                                        <p>By choosing a subscription plan on the App <br>
+                                            Pay Online with Paystack
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card mt-3">
                                 <a class="card-header collapsed" data-toggle="collapse" href="#collapse3" aria-expanded="false">
-                                    <h6 class="mb-0 d-inline-block">Support related issues for the template?</h6>
+                                    <h6 class="mb-0 d-inline-block">Will my service continue if I change my handset or mobile number?</h6>
                                 </a>
                                 <div id="collapse3" class="collapse " data-parent="#accordion" style="">
                                     <div class="card-body white-bg">
-                                        <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table. Professionally embrace customer directed value vis-a-vis high-quality portals. Quickly underwhelm B2C users with maintainable benefits. </p>
+                                        <p>The service is MSISDN-specific; however, where you change your device, you will be required to download the App and reach out to our customer care.  </p>
                                     </div>
                                 </div>
                             </div>
