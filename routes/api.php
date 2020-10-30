@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Score;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +34,10 @@ Route::prefix('v1')->group(function() {
 	 */
 	Route::get('tutors', 'Api\TutorController@index')->name('tutors.index');
 	
+	/**
+	 * LeadersBoard
+	 */
+	Route::get('leadersboard', 'Api\ScoreController@leaderBoard')->name('leaderboard.index');
 
 
 	Route::get('schools', 'Api\SchoolController@index')->name('schools.index');

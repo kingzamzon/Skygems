@@ -8,6 +8,7 @@ use App\Services\ScoreService;
 use App\Http\Requests\ScoreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ScoreController extends Controller
 {
@@ -57,5 +58,12 @@ class ScoreController extends Controller
     public function show(Score $score)
     {
         //
+    }
+
+    public function leaderBoard()
+    {
+        $data =  DB::select("SELECT scores.user_id, SUM(scores.score) as sum_score, COUNT(scores.score) as test_taken, users.name FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name ORDER BY sum_score DESC LIMIT 3");
+
+		return response($data);
     }
 }
