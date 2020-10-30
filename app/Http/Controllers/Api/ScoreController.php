@@ -62,7 +62,9 @@ class ScoreController extends Controller
 
     public function leaderBoard()
     {
-        $data =  DB::select("SELECT scores.user_id, SUM(scores.score) as sum_score, COUNT(scores.score) as test_taken, users.name FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name ORDER BY sum_score DESC LIMIT 3");
+        // $data =  DB::select("SELECT scores.user_id, SUM(scores.score) as sum_score, COUNT(scores.score) as test_taken, users.name FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name ORDER BY sum_score DESC LIMIT 3");
+
+        $data = DB::select("SELECT scores.user_id, ROUND(SUM(scores.score) / COUNT(scores.score), 2) as avg_score, users.name FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name ORDER BY avg_score DESC LIMIT 3"); 
 
 		return response($data);
     }
