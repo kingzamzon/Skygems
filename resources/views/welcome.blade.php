@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <!--title-->
-    <title>SkyGatesOnlineAcademy - App Landing Page Template</title>
+    <title>Skygems CBT Plus - A professionally packaged excellent driven test and tutorial kits</title>
 
     <!--build:css-->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
@@ -23,7 +23,7 @@
     <!--preloader start-->
     <div id="preloader">
         <div class="preloader-wrap">
-            <h3 class="img-fluid">SkyGatesOnlineAcademy</h3>
+            <h3 class="img-fluid">Skygems CBT Plus</h3>
             <div class="thecube">
                 <div class="cube c1"></div>
                 <div class="cube c2"></div>
@@ -39,7 +39,7 @@
         <nav class="navbar navbar-expand-lg fixed-top bg-transparent">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <h4 class="img-fluid text-white">SkyGatesOnlineAcademy</h4>
+                    <h4 class="img-fluid text-white">Skygems CBT Plus</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="ti-menu"></span>
@@ -659,7 +659,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-4 mb-4 mb-md-4 mb-sm-4 mb-lg-0">
                     <a href="#" class="navbar-brand mb-2">
-                        <h4 class="img-fluid text-white">SkyGatesOnlineAcademy</h4>
+                        <h4 class="img-fluid text-white">Skygems CBT Plus</h4>
                     </a>
                     <br>
                     <p>A professionally packaged excellent driven test and tutorial kits.</p>
@@ -716,7 +716,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-7">
                     <div class="copyright-wrap small-text">
-                        <p class="mb-0">&copy; SkyGatesOnlineAcademy , All rights reserved</p>
+                        <p class="mb-0">&copy; Skygems CBT Plus , All rights reserved</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5">
