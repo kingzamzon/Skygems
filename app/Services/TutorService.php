@@ -32,4 +32,9 @@ class TutorService
     {
         return Tutor::find($tutor_id)->delete();
     }
+
+    public function findTutorBySubject($subject)
+    {
+        return Tutor::where('subject', $subject)->get();
+    } 
 }

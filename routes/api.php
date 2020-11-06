@@ -76,6 +76,11 @@ Route::prefix('v1')->group(function() {
 		Route::resource('tutors','Api\TutorController', ['except' => ['index', 'store']]);
 
 		/**
+		 * Find tutor by subject
+		 */
+		Route::post('tutors/{subject}', 'Api\TutorController@findTutorBySubject')->name('tutors.subject');
+
+		/**
          * Activation Route
          */
 		Route::resource('activation','Api\ActivationController');

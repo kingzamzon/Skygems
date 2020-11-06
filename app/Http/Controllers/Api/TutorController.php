@@ -97,6 +97,13 @@ class TutorController extends Controller
         return response($data);
     }
 
+    public function findTutorBySubject($subject)
+    {
+        $data = $this->tutorService->findTutorBySubject($subject);
+
+        return response($data);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
