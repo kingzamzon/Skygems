@@ -53,4 +53,12 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany(Activation::class);
     }
 
+    /**
+     * Extending Student From user
+     */
+    public function scopeIsStudent($query)
+    {
+        $query->where('role_id', 2);
+    }
+
 }

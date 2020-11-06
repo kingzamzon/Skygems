@@ -46,6 +46,8 @@ Route::prefix('v1')->group(function() {
 
 	Route::post('questions', 'Api\QuestionController@index')->name('questions.index');
 
+	Route::get('students', 'Api\TutorController@studentIndex')->name('students.index');
+
 	Route::get('question/{id}/options','VoyagerQuestionController@getQuestionOptions')->name('questionOptions');
 
     Route::delete('question/{question_id}/options/{option_id}','VoyagerQuestionController@DeleteOption')->name('QuestionDeleteOption');

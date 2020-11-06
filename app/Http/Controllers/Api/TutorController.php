@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Tutor;
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Services\StudentService;
 use App\Services\TutorService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterTutorRequest;
@@ -12,12 +13,13 @@ use Illuminate\Validation\Validator;
 
 class TutorController extends Controller
 {
-    protected $userService, $tutorService;
+    protected $userService, $tutorService, $studentService;
 
-    public function __construct(UserService $userService, TutorService $tutorService)
+    public function __construct(UserService $userService, TutorService $tutorService, StudentService $studentService)
     {
         $this->userService = $userService;
         $this->tutorService = $tutorService;
+        $this->studentService = $studentService;
     }
 
     /**
@@ -107,12 +109,13 @@ class TutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tutor $tutor)
+    public function studentIndex()
     {
-        //
+        $data = $this->studentService->index();
+
+        return response($data);
     }
 
     /**
