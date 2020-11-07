@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\User;
 use App\Tutor;
 use Illuminate\Http\Request;
 use App\Services\UserService;
@@ -52,9 +53,6 @@ class TutorController extends Controller
      */
     public function store(RegisterTutorRequest $request)
     {
-        // return redirect()->back();
-        // return $request->all();
-
         $data = [
             "name" => $request->get('name'),
             "email" => $request->get('email'),
@@ -118,6 +116,27 @@ class TutorController extends Controller
         return response($data);
     }
 
+    public function attachStudent(Request $request)
+    {
+        $student_id = $request->get('student_id');   
+        $tutor_id = $request->get('tutor_id');
+
+        $user = User::find($student_id);
+        $user->tutors()->attach($tutor_id);
+
+        return response(['message' => 'Attach Successful']);
+    }
+
+    public function dettachStudent(Request $request)
+    {
+        $student_id = $request->get('student_id');   
+        $tutor_id = $request->get('tutor_id');
+
+        $user = User::find($student_id);
+        $user->tutors()->detach($tutor_id);
+
+        return response(['message' => 'Detach Successful']);
+    }
     /**
      * Update the specified resource in storage.
      *

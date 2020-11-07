@@ -34,4 +34,14 @@ class Tutor extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'users_tutors',
+            'tutor_id',
+            'user_id'
+        );
+    }
 }

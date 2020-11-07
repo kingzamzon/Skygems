@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Tutor;
 use App\Activation;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,6 +60,16 @@ class User extends \TCG\Voyager\Models\User
     public function scopeIsStudent($query)
     {
         $query->where('role_id', 2);
+    }
+
+    public function tutors()
+    {
+        return $this->belongsToMany(
+            Tutor::class,
+            'users_tutors',
+            'user_id',
+            'tutor_id'
+        );
     }
 
 }

@@ -46,7 +46,7 @@ Route::prefix('v1')->group(function() {
 
 	Route::post('questions', 'Api\QuestionController@index')->name('questions.index');
 
-	Route::get('students', 'Api\TutorController@studentIndex')->name('students.index');
+
 
 	Route::get('question/{id}/options','VoyagerQuestionController@getQuestionOptions')->name('questionOptions');
 
@@ -91,6 +91,15 @@ Route::prefix('v1')->group(function() {
          * School Route
          */
 		Route::resource('scores','Api\ScoreController', ['only' => ['index', 'store']]);
+
+		/**
+		 * student and tutor related
+		 */
+		Route::get('students', 'Api\TutorController@studentIndex')->name('students.index');
+
+		Route::post('students/{id}/tutor', 'Api\TutorController@attachStudent')->name('students.tutor.store');
+	
+		Route::delete('students/{id}/tutor', 'Api\TutorController@dettachStudent')->name('students.tutor.delete');
 	});
     
 });
