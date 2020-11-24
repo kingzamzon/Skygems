@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\User;
+use App\ForumTopic;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -19,4 +21,20 @@ class ForumComment extends Model
         'comment',
         'likes'
     ];
+
+    /**
+    * ForumComment belongs to ForumTopic
+    */
+    public function topic()
+    {
+        return $this->belongsTo(ForumTopic::class, 'topic_id', 'id');
+    }
+
+    /**
+     * ForumComment belongs to user
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
