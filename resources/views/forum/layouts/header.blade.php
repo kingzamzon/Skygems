@@ -39,6 +39,7 @@
                             <li><a href="{{route('forum.categories')}}"><span>Categories</span></a></li>
                             @if (Auth::check())
                             <li><a href="{{route('forum.create')}}"><span>New</span></a></li>
+                            <li><a href="{{route('forum.profile.show', ['user' => Auth::user()->id])}}"><span>Profile</span></a></li>
                             @endif
                         </ul>
                     </nav>

@@ -64,5 +64,10 @@ class ForumController extends Controller
         return view('forum.views.categories_single');
     }
 
+    public function profile_show($user)
+    {
+        return view('forum.views.user_single');
+    }
+
 
 }

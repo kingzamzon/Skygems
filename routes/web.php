@@ -34,6 +34,7 @@ Route::get('forum', 'ForumController@index')->name('forum.index');
 Route::get('forum/{slug}/topic', 'ForumController@show')->name('forum.show');
 Route::get('forum/categories', 'ForumController@categories')->name('forum.categories');
 Route::get('forum/{slug}/categories', 'ForumController@categories_show')->name('forum.categories.show');
+Route::get('forum/{user}', 'ForumController@profile_show')->name('forum.profile.show');
 
 Route::group(
     ['middleware' => ['auth']],
