@@ -21,6 +21,30 @@ Route::get('/onboard', function () {
     return view('onboard');
 })->name('onboard.index');
 
+/**
+ * Forum Routes
+ */
+Route::get('forum/login', 'ForumController@login_show')->name('forum.login');
+
+Route::post('forum/login', 'ForumController@login')->name('forum.auth.login');
+
+Route::post('forum/logout', 'ForumController@logout')->name('forum.auth.logout');
+
+Route::get('forum', 'ForumController@index')->name('forum.index');
+Route::get('forum/{slug}/topic', 'ForumController@show')->name('forum.show');
+Route::get('forum/categories', 'ForumController@categories')->name('forum.categories');
+Route::get('forum/{slug}/categories', 'ForumController@categories_show')->name('forum.categories.show');
+
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::get('forum/create', 'ForumController@create')->name('forum.create');
+    }
+);
+
+/**
+ * Tutors Routes
+ */
 Route::post('tutors', 'Api\TutorController@store')->name('tutors.store');
 
 Route::group(['prefix' => 'admin'], function () {
