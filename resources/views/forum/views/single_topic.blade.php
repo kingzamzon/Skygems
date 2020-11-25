@@ -30,14 +30,13 @@
                         {!! $topic->body !!}
                     </div>
                     <div class="tt-item-info info-bottom">
-                        <a href="#" class="tt-icon-btn">
-                            <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                            <span class="tt-text">{{$topic->likes}}</span>
-                        </a>
-                        <a href="#" class="tt-icon-btn">
-                             <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                            <span class="tt-text">{{$topic->likes}}</span>
-                        </a>
+                        @if (Auth::check())
+                            <a href="{{ route('forum.likeTopic', ['slug' => $topic->slug]) }}" class="tt-icon-btn">
+                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
+                                <span class="tt-text">{{$topic->likes}}</span>
+                            </a>
+                        @endif
+
                         <div class="col-separator"></div>
                         <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                             <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
@@ -90,7 +89,7 @@
                         <div class="tt-item">
                               <a href="#" class="tt-icon-btn tt-position-bottom">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                                <span class="tt-text">32</span>
+                                <span class="tt-text"></span>
                             </a>
                         </div>
                     </div>
@@ -127,7 +126,7 @@
                                     <a href="#">{{$com->user->name}}</a>
                                     </div>
                                     <a href="#" class="tt-info-time">
-                                        <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{date('d M, y', strtotime($com->created_at))}}
+                                        <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{date('d M,y', strtotime($com->created_at))}}
                                     </a>
                                 </div>
                             </div>
@@ -135,10 +134,12 @@
                                 {{$com->comment}}
                             </div>
                             <div class="tt-item-info info-bottom">
-                                <a href="#" class="tt-icon-btn">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                    <span class="tt-text">{{$com->likes}}</span>
-                                </a>
+                                @if (Auth::check())
+                                    <a href="{{ route('forum.likeComment', ['comment_id' => $com->id]) }}" class="tt-icon-btn">
+                                        <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
+                                        <span class="tt-text">{{$com->likes}}</span>
+                                    </a>
+                                @endif
                                 <div class="col-separator"></div>
                                 <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                                     <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
@@ -150,9 +151,15 @@
             @endif
 
         </div>
-        <div class="tt-wrapper-inner">
-            <h4 class="tt-title-separator"><span>You’ve reached the end of replies</span></h4>
-        </div>
+        @if($topic->comment->count() > 0)
+            <div class="tt-wrapper-inner">
+                <h4 class="tt-title-separator"><span>You’ve reached the end of replies</span></h4>
+            </div>
+        @else 
+            <div class="tt-wrapper-inner">
+                <h4 class="tt-title-separator"><span>No reply yet. Be the first.</span></h4>
+            </div>
+        @endif
 
         @if (!Auth::check())
             <div class="tt-topic-list">
@@ -179,99 +186,28 @@
         <div class="tt-wrapper-inner">
             <div class="pt-editor form-default">
                 <h6 class="pt-title">Post Your Reply</h6>
-                 <div class="pt-row">
-                    <div class="col-left">
-                        <ul class="pt-edit-btn">
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-quote"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-bold"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-italic"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-share_topic"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-blockquote"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-performatted"></use>
-                                </svg>
-                            </button></li>
-                            <li class="hr"></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-upload_files"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-bullet_list"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-heading"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-horizontal_line"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-emoticon"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-settings"></use>
-                                </svg>
-                            </button></li>
-                            <li><button type="button" class="btn-icon">
-                                <svg class="tt-icon">
-                                    <use xlink:href="#icon-color_picker"></use>
-                                </svg>
-                            </button></li>
-                        </ul>
+                <form class="form-default form-create-topic" action="{{route('forum.storeComment')}}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input type="hidden" name="topic_id" value="{{$topic->id}}">
+                        <textarea name="comment" class="form-control" rows="5" placeholder="Share your thought"></textarea>
                     </div>
-                    <div class="col-right tt-hidden-mobile">
-                        <a href="#" class="btn btn-primary">Preview</a>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" class="form-control" rows="5" placeholder="Lets get started"></textarea>
-                </div>
-                <div class="pt-row">
-                    <div class="col-auto">
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="checkBox21" name="checkbox" checked="">
-                            <label for="checkBox21">
-                                <span class="check"></span>
-                                <span class="box"></span>
-                                <span class="tt-text">Subscribe to this topic.</span>
-                            </label>
+                    <div class="pt-row">
+                        <div class="col-auto">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="checkBox21" name="checkbox" checked="">
+                                <label for="checkBox21">
+                                    <span class="check"></span>
+                                    <span class="box"></span>
+                                    <span class="tt-text">Subscribe to this topic.</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-secondary btn-width-lg">Reply</button>
                         </div>
                     </div>
-                    <div class="col-auto">
-                        <a href="#" class="btn btn-secondary btn-width-lg">Reply</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         @endif

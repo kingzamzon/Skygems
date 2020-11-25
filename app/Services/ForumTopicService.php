@@ -33,6 +33,16 @@ class ForumTopicService
         return ForumTopic::where('title', 'like', '%'.$title.'%')->get();
     }  
 
+    public function findByUser(int $user_id)
+    {
+        return ForumTopic::where('user_id', $user_id)->get();
+    } 
+
+    public function findByCategory(int $category_id)
+    {
+        return ForumTopic::where('category_id', $category_id)->get();
+    } 
+
     public function update(int $topic_id, array $data)
     {
         return ForumTopic::where('id', $topic_id)->update($data);

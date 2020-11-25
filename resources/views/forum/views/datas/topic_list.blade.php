@@ -1,6 +1,6 @@
 @if (count($topics) > 0)
     @foreach ($topics as $topic)
-    <div class="tt-item @if ($topic->user_id == Auth::user()->id) {{"tt-itemselect"}} @endif" >
+    <div class="tt-item @if (Auth::check() && ($topic->user_id == Auth::user()->id)) {{"tt-itemselect"}} @endif" >
         <div class="tt-col-avatar">
             <svg class="tt-icon">
             <use xlink:href="#icon-ava-{{\Str::lower(\Str::substr($topic->user->name, 0,1))}}"></use>

@@ -44,6 +44,9 @@ Route::group(
     function () {
         Route::get('forum/create', 'ForumController@create')->name('forum.create');
         Route::post('forum/create', 'ForumController@storeTopic')->name('forum.storeTopic');
+        Route::post('forum/comment', 'ForumController@storeComment')->name('forum.storeComment');
+        Route::get('forum/{slug}/topic/like', 'ForumController@likeTopic')->name('forum.likeTopic');
+        Route::get('forum/{comment_id}/topic/comment', 'ForumController@likeComment')->name('forum.likeComment');
     }
 );
 

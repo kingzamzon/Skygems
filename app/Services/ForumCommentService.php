@@ -28,6 +28,11 @@ class ForumCommentService
         return ForumComment::where('topic_id', $topic_id)->get();
     }
 
+    public function findUserComment(int $user_id)
+    {
+        return ForumComment::where('user_id', $user_id)->get();
+    }
+
     public function sumUniqueUserComment(int $topic_id)
     {
         return ForumComment::where('topic_id', $topic_id)->get()->pluck('user_id')->unique()->count();

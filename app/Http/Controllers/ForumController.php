@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\ForumTopic;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Services\UserService;
 use App\Services\ForumCategoryService;
 use App\Services\ForumTopicService;
 use App\Services\ForumCommentService;
@@ -14,14 +15,15 @@ use Illuminate\Support\Facades\Hash;
 
 class ForumController extends Controller
 {
-    protected $forumCategoryService, $forumTopicService, $forumCommentService;
+    protected $forumCategoryService, $forumTopicService, $forumCommentService, $userService;
 
     public function __construct(ForumCategoryService $forumCategoryService, ForumTopicService $forumTopicService, 
-                                ForumCommentService $forumCommentService)
+                                ForumCommentService $forumCommentService, UserService $userService)
     {
         $this->forumCategoryService = $forumCategoryService;
         $this->forumTopicService = $forumTopicService;
         $this->forumCommentService = $forumCommentService;
+        $this->userService = $userService;
     }
 
     public function login_show()
@@ -57,6 +59,13 @@ class ForumController extends Controller
         return redirect()->route('forum.index');
     }
 
+
+    /**
+     * 
+     * 
+     * 
+     * Operations related to topic
+     */
     public function index()
     {
         $query = '';
@@ -89,6 +98,20 @@ class ForumController extends Controller
         return view('forum.views.single_topic', compact('topic','topics', 'query'));
     }
 
+    public function likeTopic($slug)
+    {
+        $topic = $this->forumTopicService->findSlug($slug);
+        // increase views 
+        $topic->likes += 1;
+        $topic->save();
+
+        $success = "Topic Created";
+        return redirect()->back()->with(['success' => $success]);
+    }
+
+    /**
+     * Store Topic
+     */
     public function storeTopic(Request $request)
     {
         $rules = [
@@ -130,6 +153,11 @@ class ForumController extends Controller
         }
     }
 
+    /**
+     * 
+     * 
+     * Operations related to comment
+     */
     public function storeComment(Request $request)
     {
         $rules = [
@@ -142,8 +170,6 @@ class ForumController extends Controller
         $data = $request->all();
 
         $data['user_id'] = auth()->user()->id;
-        $data['topic_id'] = $request->topic_id;
-        $data['comment'] = $request->body;
         $data['likes'] = 0;
 
         $post = $this->forumCommentService->create($data);
@@ -152,6 +178,21 @@ class ForumController extends Controller
         return redirect()->back()->with(['success' => $success]);
     }
 
+    public function likeComment($comment_id)
+    {
+        $comment = $this->forumCommentService->find($comment_id);
+        $comment->likes += 1;
+        $comment->save();
+
+        return redirect()->back();
+    }
+
+
+    /***
+     * 
+     * 
+     * Operations related to categories
+     */
     public function categories()
     {
         $query = '';
@@ -163,21 +204,30 @@ class ForumController extends Controller
     public function categories_show($slug)
     {
         $query = '';
+        $category = $this->forumCategoryService->find($slug);
+        $topics = $this->forumTopicService->findByCategory($category->id);
 
-        return view('forum.views.categories_single'. compact('query'));
+        return view('forum.views.categories_single', compact('query', 'category', 'topics'));
     }
 
     /**
+     * 
+     * 
      * Display user profile
      */
     public function profile_show($user)
     {
         $query = '';
-        /**@TODO: use the user data to display info */
-        return view('forum.views.user_single', compact('query'));
+        $user = $this->userService->findByUsername($user);
+        $usertopics = $this->forumTopicService->findByUser($user->id);
+        $usercomments = $this->forumCommentService->findUserComment($user->id);
+
+        return view('forum.views.user_single', compact('query', 'user', 'usertopics', 'usercomments'));
     }
 
     /**
+     * 
+     * 
      * Error page with topics to read from
      */
     public function error404()

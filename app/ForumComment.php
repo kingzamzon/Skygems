@@ -27,7 +27,7 @@ class ForumComment extends Model
     */
     public function topic()
     {
-        return $this->belongsTo(ForumTopic::class, 'id', 'topic_id');
+        return $this->belongsTo(ForumTopic::class, 'topic_id', 'id');
     }
 
     /**
