@@ -68,8 +68,9 @@ class ForumController extends Controller
     public function create()
     {
         $query = '';
+        $categories = $this->forumCategoryService->index();
 
-        return view('forum.views.create_topic', compact('query'));
+        return view('forum.views.create_topic', compact('query', 'categories'));
     }
 
     public function showTopic($slug)
@@ -93,9 +94,8 @@ class ForumController extends Controller
         $rules = [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|required',
-            'tag' => 'required',
-            'status' => 'required'
+            'category_id' => 'required',
+            'tag' => 'required'
         ];
 
         $this->validate($request, $rules);
@@ -103,11 +103,7 @@ class ForumController extends Controller
         $data = $request->all();
 
         $data['user_id'] = auth()->user()->id;
-        $data['title'] = $request->title;
         $data['slug'] = str::slug($request->title, '-');
-        $data['body'] = $request->body;
-        $data['category_id'] = $request->category_id;
-        $data['tag'] = $request->tag;
         $data['flag'] = ForumTopic::OPEN_FLAG;
         $data['views'] = 1;
         $data['likes'] = 0;

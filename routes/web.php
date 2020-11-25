@@ -43,6 +43,7 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('forum/create', 'ForumController@create')->name('forum.create');
+        Route::post('forum/create', 'ForumController@storeTopic')->name('forum.storeTopic');
     }
 );
 
