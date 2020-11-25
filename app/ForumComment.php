@@ -23,6 +23,15 @@ class ForumComment extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
+    ];
+    
+    /**
     * ForumComment belongs to ForumTopic
     */
     public function topic()

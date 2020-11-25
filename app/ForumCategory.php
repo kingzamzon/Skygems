@@ -21,6 +21,15 @@ class ForumCategory extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
+    ];
+
+    /**
      * Forum has many topic
      */
     public function topic()

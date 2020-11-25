@@ -33,6 +33,15 @@ class ForumTopic extends Model
         'likes'
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
+    ];
+    
     protected $appends = [
         'date'
     ];
