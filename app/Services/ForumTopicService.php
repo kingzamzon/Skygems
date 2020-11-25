@@ -28,6 +28,11 @@ class ForumTopicService
         return ForumTopic::where('slug', $slug)->first();
     }  
 
+    public function findByTitle(string $title)
+    {
+        return ForumTopic::where('title', 'like', '%'.$title.'%')->get();
+    }  
+
     public function update(int $topic_id, array $data)
     {
         return ForumTopic::where('id', $topic_id)->update($data);

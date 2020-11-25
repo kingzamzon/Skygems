@@ -32,9 +32,12 @@ Route::post('forum/logout', 'ForumController@logout')->name('forum.auth.logout')
 
 Route::get('forum', 'ForumController@index')->name('forum.index');
 Route::get('forum/{slug}/topic', 'ForumController@showTopic')->name('forum.show');
+Route::get('forum/search', 'ForumController@findTopic')->name('forum.findTopic');
 Route::get('forum/categories', 'ForumController@categories')->name('forum.categories');
 Route::get('forum/{slug}/categories', 'ForumController@categories_show')->name('forum.categories.show');
-Route::get('forum/{user}', 'ForumController@profile_show')->name('forum.profile.show');
+Route::get('forum/{user}/profile', 'ForumController@profile_show')->name('forum.profile.show');
+
+Route::get('forum/404', 'ForumController@error404')->name('forum.404');
 
 Route::group(
     ['middleware' => ['auth']],

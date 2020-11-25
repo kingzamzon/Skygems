@@ -1,13 +1,16 @@
 @extends('forum.layouts.app')
 
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.1/ckeditor.js" integrity="sha512-aThGT4RJc95+zt2vrs8iMjrFpsJxcFclp7tweVls6/3cNo3GWvGvtLV576o8Kdvdf3fJhrrG3wkmoea/KJMLFQ==" crossorigin="anonymous"></script>
+
 <main id="tt-pageContent">
     <div class="container">
         <div class="tt-wrapper-inner">
             <h1 class="tt-title-border">
                 Create New Topic
             </h1>
-            <form class="form-default form-create-topic">
+            <form class="form-default form-create-topic" action="{{route('forum.findTopic')}}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="inputTopicTitle">Topic Title</label>
                     <div class="tt-value-wrapper">
@@ -18,80 +21,8 @@
                 </div>
                 <div class="pt-editor">
                     <h6 class="pt-title">Topic Body</h6>
-                    <div class="pt-row">
-                        <div class="col-left">
-                            <ul class="pt-edit-btn">
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-quote"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-bold"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-italic"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-share_topic"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-blockquote"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-performatted"></use>
-                                    </svg>
-                                </button></li>
-                                <li class="hr"></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-upload_files"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-bullet_list"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-heading"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-horizontal_line"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-emoticon"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-settings"></use>
-                                    </svg>
-                                </button></li>
-                                <li><button type="button" class="btn-icon">
-                                    <svg class="tt-icon">
-                                      <use xlink:href="#icon-color_picker"></use>
-                                    </svg>
-                                </button></li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="form-group">
-                        <textarea name="message" class="form-control" rows="5" placeholder="Lets get started"></textarea>
+                        <textarea id='editor1' name="message" class="form-control" rows="5" placeholder="Lets get started"></textarea>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
@@ -188,4 +119,7 @@
         </div>
     </div>
 </main>
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script>
 @endsection

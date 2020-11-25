@@ -26,7 +26,9 @@ class ForumController extends Controller
 
     public function login_show()
     {
-        return view('forum.views.login');
+        $query = '';
+
+        return view('forum.views.login', compact('query'));
     }
 
     public function login(Request $request)
@@ -57,28 +59,33 @@ class ForumController extends Controller
 
     public function index()
     {
+        $query = '';
         $topics = $this->forumTopicService->index();
 
-        return view('forum.views.index', compact('topics'));
+        return view('forum.views.index', compact('topics', 'query'));
     }
 
     public function create()
     {
-        return view('forum.views.create_topic');
+        $query = '';
+
+        return view('forum.views.create_topic', compact('query'));
     }
 
     public function showTopic($slug)
     {
+        $query = '';
+
         $topic = $this->forumTopicService->findSlug($slug);
         // increase views 
         $topic->views += 1;
         $topic->save();
-        
+
         $topic['comment_interactors'] = $this->forumCommentService->sumUniqueUserComment($topic->id);
 
         $topics = $this->forumTopicService->index();
 
-        return view('forum.views.single_topic', compact('topic','topics'));
+        return view('forum.views.single_topic', compact('topic','topics', 'query'));
     }
 
     public function storeTopic(Request $request)
@@ -111,6 +118,22 @@ class ForumController extends Controller
         return redirect()->back()->with(['success' => $success]);
     }
 
+    /**
+     * 
+     * @query search?query=biloo
+     */
+    public function findTopic(Request $request)
+    {
+        $query = $request->input('query');
+
+        if($query){
+            $topics = $this->forumTopicService->findByTitle($query);
+            return view('forum.views.search', compact('query', 'topics'));
+        }else {
+            return redirect()->route('forum.404');
+        }
+    }
+
     public function storeComment(Request $request)
     {
         $rules = [
@@ -135,20 +158,38 @@ class ForumController extends Controller
 
     public function categories()
     {
+        $query = '';
         $categories = $this->forumCategoryService->index();
 
-        return view('forum.views.categories', compact('categories'));
+        return view('forum.views.categories', compact('categories', 'query'));
     }
 
     public function categories_show($slug)
     {
-        return view('forum.views.categories_single');
+        $query = '';
+
+        return view('forum.views.categories_single'. compact('query'));
     }
 
+    /**
+     * Display user profile
+     */
     public function profile_show($user)
     {
-        return view('forum.views.user_single');
+        $query = '';
+        /**@TODO: use the user data to display info */
+        return view('forum.views.user_single', compact('query'));
     }
 
+    /**
+     * Error page with topics to read from
+     */
+    public function error404()
+    {
+        $topics = $this->forumTopicService->index();
+        $query = '';
+
+        return view('forum.views.404', compact('topics', 'query'));
+    }
 
 }

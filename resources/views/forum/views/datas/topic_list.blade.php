@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="tt-col-value hide-mobile">{{$topic->likes}}</div>
-        <div class="tt-col-value tt-color-select hide-mobile">{{$topic->title}}</div>
+        <div class="tt-col-value tt-color-select hide-mobile">{{$topic->comment->count()}}</div>
         <div class="tt-col-value hide-mobile">{{$topic->views}}</div>
         <div class="tt-col-value hide-mobile">{{$topic->date}}</div>
     </div>

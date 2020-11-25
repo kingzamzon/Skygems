@@ -39,7 +39,7 @@
                             <li><a href="{{route('forum.categories')}}"><span>Categories</span></a></li>
                             @if (Auth::check())
                             <li><a href="{{route('forum.create')}}"><span>New</span></a></li>
-                            <li><a href="{{route('forum.profile.show', ['user' => Auth::user()->id])}}"><span>Profile</span></a></li>
+                            <li><a href="{{route('forum.profile.show', ['user' => Auth::user()->username])}}"><span>Profile</span></a></li>
                             @endif
                         </ul>
                     </nav>
@@ -54,9 +54,11 @@
                         </svg>
                     </button>
                     <!-- /toggle -->
-                    <form class="search-wrapper">
+
+                    <form class="search-wrapper" action="{{route('forum.findTopic')}}" method="GET">
+                        @csrf
                         <div class="search-form">
-                            <input type="text" class="tt-search__input" placeholder="Search">
+                            <input type="text" name="query" class="tt-search__input" placeholder="Search" value="@if($query){{$query}}@endif">
                             <button class="tt-search__btn" type="submit">
                                <svg class="tt-icon">
                                   <use xlink:href="#icon-search"></use>
@@ -72,6 +74,7 @@
                             <button type="button" class="tt-view-all" data-toggle="modal" data-target="#modalAdvancedSearch">Advanced Search</button>
                         </div>
                     </form>
+
                 </div>
                 <!-- /tt-search -->
             </div>
