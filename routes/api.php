@@ -117,7 +117,7 @@ Route::prefix('v1')->group(function() {
 		 * Forum Comment Route
          */
 		Route::resource('forum/comment','Api\ForumCommentController', ['only' => ['store']]);
-		Route::get('forum/{comment_id}/comment/like','Api\ForumCommentController@likeTopic');
+		Route::get('forum/{comment_id}/comment/like','Api\ForumCommentController@likeComment');
 	});
     
 });

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\ForumComment;
-use App\Http\Controllers\Controller;
-use App\Services\ForumCommentService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Validator;
+use App\Services\ForumCommentService;
 
 class ForumCommentController extends Controller
 {
@@ -38,12 +39,14 @@ class ForumCommentController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
+        $validator = Validator::make($request->all(), [
             'comment' => 'required',
             'topic_id' => 'required'
-        ];
+        ]);
 
-        $this->validate($request, $rules);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
 
         $data = $request->all();
 

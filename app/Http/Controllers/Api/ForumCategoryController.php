@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\ForumCategory;
+use App\Services\ForumTopicService;
 use App\Services\ForumCategoryService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ForumCategoryController extends Controller
 {
-    protected $forumCategoryService;
+    protected $forumTopicService, $forumCategoryService;
 
-    public function __construct(ForumCategoryService $forumCategoryService)
+    public function __construct(ForumTopicService $forumTopicService, ForumCategoryService $forumCategoryService)
     {
+        $this->forumTopicService = $forumTopicService;
         $this->forumCategoryService = $forumCategoryService;
     }
 
@@ -34,9 +36,9 @@ class ForumCategoryController extends Controller
      * @param  \App\ForumCategory  $forumCategory
      * @return \Illuminate\Http\Response
      */
-    public function show($forumCategory)
+    public function show($category)
     {
-        $category = $this->forumCategoryService->find($forumCategory);
+        $category = $this->forumCategoryService->find($category);
         $category['topics'] = $this->forumTopicService->findByCategory($category->id);
 
         return response($category);

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\ForumTopic;
+use App\Services\UserService;
 use App\Services\ForumTopicService;
+use App\Services\ForumCommentService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ForumTopicRequest;
 use Illuminate\Http\Request;
 
 class ForumTopicController extends Controller
@@ -28,7 +31,7 @@ class ForumTopicController extends Controller
     {
         $topics = $this->forumTopicService->index();
 
-        return response($data);
+        return response($topics);
     }
 
     /**
@@ -36,7 +39,7 @@ class ForumTopicController extends Controller
      */
     public function likeTopic($slug)
     {
-        $topic = $this->forumTopicService->findSlug($slug);
+        $topic = $this->forumTopicService->find($slug);
         // increase views 
         $topic->likes += 1;
         $topic->save();
@@ -49,17 +52,8 @@ class ForumTopicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ForumTopicRequest $request)
     {
-        $rules = [
-            'title' => 'required',
-            'body' => 'required',
-            'category_id' => 'required',
-            'tag' => 'required'
-        ];
-
-        $this->validate($request, $rules);
-
         $data = $request->all();
 
         $data['user_id'] = auth()->user()->id;
