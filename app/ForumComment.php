@@ -27,7 +27,7 @@ class ForumComment extends Model
     */
     public function topic()
     {
-        return $this->belongsTo(ForumTopic::class, 'topic_id', 'id');
+        return $this->belongsTo(ForumTopic::class, 'id', 'topic_id');
     }
 
     /**
@@ -35,6 +35,6 @@ class ForumComment extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
