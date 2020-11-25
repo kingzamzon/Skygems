@@ -4,28 +4,30 @@ namespace App\Http\Controllers\Api;
 
 use App\ForumComment;
 use App\Http\Controllers\Controller;
+use App\Services\ForumCommentService;
 use Illuminate\Http\Request;
 
 class ForumCommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $forumCommentService;
+
+    public function __construct(ForumCommentService $forumCommentService)
     {
-        //
+        $this->forumCommentService = $forumCommentService;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Like a single Topic comment 
      *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function likeComment($comment_id)
     {
-        //
+        $comment = $this->forumCommentService->find($comment_id);
+        $comment->likes += 1;
+        $comment->save();
+
+        return response($comment);
     }
 
     /**
@@ -36,41 +38,21 @@ class ForumCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $rules = [
+            'comment' => 'required',
+            'topic_id' => 'required'
+        ];
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\ForumComment  $forumComment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ForumComment $forumComment)
-    {
-        //
-    }
+        $this->validate($request, $rules);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ForumComment  $forumComment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ForumComment $forumComment)
-    {
-        //
-    }
+        $data = $request->all();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ForumComment  $forumComment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ForumComment $forumComment)
-    {
-        //
+        $data['user_id'] = auth()->user()->id;
+        $data['likes'] = 0;
+
+        $data = $this->forumCommentService->create($data);
+
+        return response($data);
     }
 
     /**

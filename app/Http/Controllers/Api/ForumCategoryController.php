@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\ForumCategory;
+use App\Services\ForumCategoryService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ForumCategoryController extends Controller
 {
+    protected $forumCategoryService;
+
+    public function __construct(ForumCategoryService $forumCategoryService)
+    {
+        $this->forumCategoryService = $forumCategoryService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,28 +23,9 @@ class ForumCategoryController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $data = $this->forumCategoryService->index();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return response($data);
     }
 
     /**
@@ -45,42 +34,11 @@ class ForumCategoryController extends Controller
      * @param  \App\ForumCategory  $forumCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(ForumCategory $forumCategory)
+    public function show($forumCategory)
     {
-        //
-    }
+        $category = $this->forumCategoryService->find($forumCategory);
+        $category['topics'] = $this->forumTopicService->findByCategory($category->id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ForumCategory  $forumCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ForumCategory $forumCategory)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ForumCategory  $forumCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ForumCategory $forumCategory)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ForumCategory  $forumCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ForumCategory $forumCategory)
-    {
-        //
+        return response($category);
     }
 }
