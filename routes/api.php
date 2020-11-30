@@ -100,6 +100,24 @@ Route::prefix('v1')->group(function() {
 		Route::post('students/{id}/tutor', 'Api\TutorController@attachStudent')->name('students.tutor.store');
 	
 		Route::delete('students/{id}/tutor', 'Api\TutorController@dettachStudent')->name('students.tutor.delete');
+
+		/**
+         * Forum Categories Route
+         */
+		Route::resource('forum/categories','Api\ForumCategoryController', ['only' => ['index', 'show']]);
+
+		/**
+         * Forum Topic Route
+         */
+		Route::resource('forum/topic','Api\ForumTopicController', ['only' => ['index', 'show', 'store']]);
+		Route::get('forum/{slug}/topic/like','Api\ForumTopicController@likeTopic');
+		Route::get('forum/{slug}/profile','Api\ForumTopicController@profile_show');
+		
+		/**
+		 * Forum Comment Route
+         */
+		Route::resource('forum/comment','Api\ForumCommentController', ['only' => ['store']]);
+		Route::get('forum/{comment_id}/comment/like','Api\ForumCommentController@likeComment');
 	});
     
 });

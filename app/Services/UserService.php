@@ -23,6 +23,11 @@ class UserService
         return User::find($user_id);
     }
 
+    public function findByUsername(string $username)
+    {
+        return User::where('username', $username)->first();
+    }
+
     public function update(int $user_id, array $data)
     {
         return User::where('id', $user_id)->update($data);

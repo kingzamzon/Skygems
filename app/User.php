@@ -4,6 +4,7 @@ namespace App;
 
 use App\Tutor;
 use App\Activation;
+use App\ForumComment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -52,6 +53,14 @@ class User extends \TCG\Voyager\Models\User
     public function activation()
     {
         return $this->hasMany(Activation::class);
+    }
+
+    /**
+    * Category has many questions
+    */
+    public function comment()
+    {
+        return $this->hasMany(ForumComment::class);
     }
 
     /**

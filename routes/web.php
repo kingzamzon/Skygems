@@ -21,6 +21,38 @@ Route::get('/onboard', function () {
     return view('onboard');
 })->name('onboard.index');
 
+/**
+ * Forum Routes
+ */
+Route::get('forum/login', 'ForumController@login_show')->name('forum.login');
+
+Route::post('forum/login', 'ForumController@login')->name('forum.auth.login');
+
+Route::post('forum/logout', 'ForumController@logout')->name('forum.auth.logout');
+
+Route::get('forum', 'ForumController@index')->name('forum.index');
+Route::get('forum/{slug}/topic', 'ForumController@showTopic')->name('forum.show');
+Route::get('forum/search', 'ForumController@findTopic')->name('forum.findTopic');
+Route::get('forum/categories', 'ForumController@categories')->name('forum.categories');
+Route::get('forum/{slug}/categories', 'ForumController@categories_show')->name('forum.categories.show');
+Route::get('forum/{user}/profile', 'ForumController@profile_show')->name('forum.profile.show');
+
+Route::get('forum/404', 'ForumController@error404')->name('forum.404');
+
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::get('forum/create', 'ForumController@create')->name('forum.create');
+        Route::post('forum/create', 'ForumController@storeTopic')->name('forum.storeTopic');
+        Route::post('forum/comment', 'ForumController@storeComment')->name('forum.storeComment');
+        Route::get('forum/{slug}/topic/like', 'ForumController@likeTopic')->name('forum.likeTopic');
+        Route::get('forum/{comment_id}/comment/like', 'ForumController@likeComment')->name('forum.likeComment');
+    }
+);
+
+/**
+ * Tutors Routes
+ */
 Route::post('tutors', 'Api\TutorController@store')->name('tutors.store');
 
 Route::group(['prefix' => 'admin'], function () {
