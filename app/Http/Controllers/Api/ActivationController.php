@@ -36,9 +36,11 @@ class ActivationController extends Controller
     {
         $data = [
             "user_id" => $request->get('user_id'),
-            "software" => $request->get('software'),
-            "reference" => $request->get('reference'),
-            "expiry_date" => $request->get('expiry_date')
+            "payment_type" => $request->get('payment_type'),
+            "status" => $request->get('status'),
+            "transaction_ref" => $request->get('transaction_ref'),
+            "exam_type" => $request->get('exam_type'),
+            "imei_no" => $request->get('imei_no'),
         ];
 
         $data = $this->activationService->create($data);

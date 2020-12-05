@@ -27,9 +27,11 @@ class ActivationRequest extends FormRequest
     {
         return [
             'user_id' => 'required|exists:users,id',
-            'software' => 'required',
-            'reference' => 'required|unique:activations,reference',
-            'expiry_date' => 'required'
+            'payment_type' => 'required',
+            'status' => 'required',
+            'transaction_ref' => 'required|unique:activations,transaction_ref',
+            'exam_type' => 'required',
+            'imei_no' => 'required|unique:activations,imei_no'
         ];
     }
 
@@ -42,10 +44,14 @@ class ActivationRequest extends FormRequest
     {
         return [
             'user_id.required' => 'User field is empty.',
-            'user_id.exists' => 'Username is invalid.',
-            'software.required' => 'Software field is empty e.g Neco, Jamb.',
-            'reference.required' => 'Subject name field is empty.',
-            'expiry_date.required' => 'Subject name field is empty.'
+            'user_id.exists' => 'User is invalid.',
+            'payment_type.required' => 'payment_type field is empty(online, recharge card).',
+            'status.required' => 'status field is empty e.g Neco, Jamb.',
+            'transaction_ref.required' => 'transaction_ref field is empty.',
+            'transaction_ref.unique' => 'transaction_ref has already used.',
+            'exam_type.required' => 'exam_type field is empty.',
+            'imei_no.required' => 'imei_no field is empty.',
+            'imei_no.unique' => 'imei_no has already used.',
         ];
     }
     

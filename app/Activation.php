@@ -13,7 +13,7 @@ class Activation extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'software', 'reference', 'expiry_date'
+        'user_id', 'payment_type', 'status', 'transaction_ref', 'exam_type', 'imei_no'
     ];
 
     /**
