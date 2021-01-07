@@ -46,7 +46,7 @@ class ActivationRequest extends FormRequest
             'user_id.required' => 'User field is empty.',
             'user_id.exists' => 'User is invalid.',
             'payment_type.required' => 'payment_type field is empty(online, recharge card).',
-            'status.required' => 'status field is empty ',
+            'status.required' => 'status field is empty e.g active, expired',
             'transaction_ref.required' => 'transaction_ref field is empty.',
             'transaction_ref.unique' => 'transaction_ref has already used.',
             'exam_type.required' => 'exam_type field is empty e.g Neco, Jamb.',
