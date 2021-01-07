@@ -24,6 +24,7 @@
     <div id="preloader">
         <div class="preloader-wrap">
             <h3 class="img-fluid">Skygems CBT Plus</h3>
+            <p>A Product of Skygems Online Academy (A Subsidiary of Skygems Nigeria Ltd.)</p>
             <div class="thecube">
                 <div class="cube c1"></div>
                 <div class="cube c2"></div>
@@ -65,6 +66,26 @@
 
     <div class="main">
 
+        <section class="position-relative gradient-bg ptb-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-lg-5 mb-4 mb-sm-4 mb-md-0 mb-lg-0">
+                        <div class="testimonial-heading text-white">
+                            <h2 class="text-white">SKYGEMS ONLINE ACADEMY</h2>
+                            <p>A trusted, excellence-driven virtual platform for all your educational needs</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="testimonial-content-wrap">
+                            <div class="img-wrap">
+                                <img src="{{ asset('assets/img/hero5-app.png') }}" alt="app image" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!--hero section start-->
         <section class="ptb-100 bg-image overflow-hidden" image-overlay="8">
             <div class="background-image-wraper" style="background: url('assets/img/slider-bg-1.jpg'); opacity: 1;"></div>
@@ -79,7 +100,7 @@
                     <div class="col-md-12 col-lg-6">
                         <div class="hero-slider-content text-white py-5">
                             <h1 class="text-white">Skygems CBT Plus</h1>
-                            <p class="lead">A professionally packaged excellent driven test and tutorial kits.</p>
+                            <p class="lead">Skygems CBT Plus is a bundle of Professionally packaged excellence driven test and tutorial kits</p>
 
                             <div class="action-btns mt-4">
                                 <ul class="list-inline">
@@ -129,7 +150,7 @@
                     <div class="col-lg-7 col-md-10">
                         <div class="section-heading">
                             <h2>Quick walk through</h2>
-                            <p>SkyGates CBT Plus is a professionally packaged excellent driven test and tutorial kits</p>
+                            <p> <i>Skygems CBT Plus</i> is a bundle of professionally packaged excellence-driven test and tutorial kits</p>
                         </div>
                     </div>
                 </div>
@@ -202,8 +223,9 @@
                     </div>
                     <div class="col-md-12 col-lg-7">
                         <div class="about-content-left section-heading">
-                            <h2>Skygems CBT Plus is a professionally packaged excellent driven test and tutorial kits.
+                            <h2>Skygems CBT Plus is a bundle of professionally packaged excellence-driven test and tutorial kits
                             </h2>
+                            <p>A Product of Skygems Online Academy (A Subsidiary of Skygems Nigeria Ltd.)</p>
 
                             <div class="action-btns mt-4">
                                 <a href="#contact" class="btn btn-brand-02 mr-3">Get Start Now</a>
@@ -309,7 +331,7 @@
                     <div class="col-md-9 col-lg-8">
                         <div class="section-heading text-center mb-5">
                             <h2>Apps Screenshots</h2>
-                            <p>Proactively impact value-added channels via backend leadership skills. Efficiently revolutionize worldwide networks whereas strategic catalysts for change. </p>
+                            <p>Proactively impact value-added channels via backend leadership skills. Efficiently revolutionize worldwide networks whereas strategic catalysts for change </p>
                         </div>
                     </div>
                 </div>
@@ -341,7 +363,7 @@
                             <p>
                                 Professional hosting at an affordable price. Distinctively recaptiualize principle-centered
                                 core competencies through client-centered
-                                core competencies.
+                                core competencies
                             </p>
                         </div>
                     </div>
@@ -606,7 +628,7 @@
                                     <div class="contact-text">
                                         <h5 class="mb-1">Company Location</h5>
                                         <p>
-                                            100 Yellow House, Mn Factory, United State, 13420
+                                            34, Barikisu Iyede Street, (NSPRI Complex, Off UNILAG Road) Onitiri, Yaba, Lagos.
                                         </p>
                                     </div>
                                 </li>
@@ -617,7 +639,7 @@
                                     <div class="contact-text">
                                         <h5 class="mb-1">Email Address</h5>
                                         <p>
-                                            hello@yourdomain.com
+                                            skygemsgroup@gmail.com
                                         </p>
                                     </div>
                                 </li>
@@ -662,7 +684,9 @@
                         <h4 class="img-fluid text-white">Skygems CBT Plus</h4>
                     </a>
                     <br>
-                    <p>A professionally packaged excellent driven test and tutorial kits.</p>
+                    <p>Skygems CBT Plus is a bundle of Professionally packaged excellence-driven test and tutorial kits</p>
+                    <p>A Product of Skygems Online Academy (A Subsidiary of Skygems Nigeria Ltd.)</p>
+                    
                     <div class="list-inline social-list-default background-color social-hover-2 mt-2">
                         <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
