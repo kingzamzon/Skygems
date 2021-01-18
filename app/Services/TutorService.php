@@ -35,6 +35,6 @@ class TutorService
 
     public function findTutorBySubject($subject)
     {
-        return Tutor::where('subject', $subject)->get();
+        return Tutor::where('subject', $subject)->with('user:id,avatar,phone,username')->get();
     } 
 }
