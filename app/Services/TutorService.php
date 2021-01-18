@@ -10,7 +10,7 @@ class TutorService
 {
     public function index()
     {
-        return Tutor::orderBy('id', 'desc')->paginate(15);
+        return Tutor::with('user:id,avatar,phone,username')->orderBy('id', 'desc')->paginate(15);
     }
 
     public function create(array $data)
@@ -20,7 +20,7 @@ class TutorService
 
     public function find(int $tutor_id)
     {
-        return Tutor::find($tutor_id);
+        return Tutor::with('user:id,avatar,phone,username')->find($tutor_id);
     }
 
     public function update(int $tutor_id, array $data)
@@ -35,6 +35,6 @@ class TutorService
 
     public function findTutorBySubject($subject)
     {
-        return Tutor::where('subject', $subject)->with('user:id,avatar,phone,username')->get();
+        return Tutor::where('subject', 'like', '%'.$subject.'%')->with('user:id,avatar,phone,username')->get();
     } 
 }
