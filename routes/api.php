@@ -80,7 +80,7 @@ Route::prefix('v1')->group(function() {
 		/**
 		 * Find tutor by subject
 		 */
-		Route::post('tutors/{subject}', 'Api\TutorController@findTutorBySubject')->name('tutors.subject');
+		Route::post('tutors/subject', 'Api\TutorController@findTutorBySubject')->name('tutors.subject');
 
 		/**
          * Activation Route

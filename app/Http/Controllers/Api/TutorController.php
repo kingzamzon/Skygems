@@ -10,7 +10,7 @@ use App\Services\StudentService;
 use App\Services\TutorService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterTutorRequest;
-use Illuminate\Validation\Validator; 
+use Validator;
 
 class TutorController extends Controller
 {
@@ -97,8 +97,18 @@ class TutorController extends Controller
         return response($data);
     }
 
-    public function findTutorBySubject($subject)
+    public function findTutorBySubject(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'subject' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 401);
+        }
+
+        $subject = $request->get('subject');
+
         $data = $this->tutorService->findTutorBySubject($subject);
 
         return response($data);
