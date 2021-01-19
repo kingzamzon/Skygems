@@ -26,7 +26,8 @@ class ScoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'score' => 'required'
+            'result_sheet' => 'required',
+            'result_cum' => 'required'
         ];
     }
 
@@ -38,7 +39,8 @@ class ScoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'score.required' => 'Score field is empty.'
+            'result_sheet.required' => 'result sheet field is empty.',
+            'result_cum.required' => 'result_cum field is empty.'
         ];
     }
     

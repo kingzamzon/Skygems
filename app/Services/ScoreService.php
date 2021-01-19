@@ -18,9 +18,9 @@ class ScoreService
         return Score::create($data);
     }
 
-    public function find()
+    public function find($user_id)
     {
-        return Score::where('user_id', Auth::id())->get();
+        return Score::where('user_id', $user_id)->get();
     }
 
     public function update(int $score_id, array $data)

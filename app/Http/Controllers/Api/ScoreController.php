@@ -26,7 +26,8 @@ class ScoreController extends Controller
      */
     public function index()
     {
-        $data = $this->scoreService->find();
+        $data = $this->scoreService->find(Auth::id());
+        $data['result_sheet'] = json_decode($data->result_sheet);
 
         return response($data);
     }
@@ -40,8 +41,10 @@ class ScoreController extends Controller
     public function store(ScoreRequest $request)
     {
         $data = [
-            "score" => $request->get('score')
+            "result_cum" => $request->get('result_cum')
         ];
+
+        $data['result_sheet'] =  json_encode($request->get('result_sheet'));
         $data['user_id'] = Auth::id();
 
         $data = $this->scoreService->create($data);
@@ -55,16 +58,19 @@ class ScoreController extends Controller
      * @param  \App\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function show(Score $score)
+    public function show($user_id)
     {
-        //
+        $data = $this->scoreService->find($user_id);
+        $data['result_sheet'] = json_decode($data->result_sheet);
+
+        return response($data);
     }
 
     public function leaderBoard()
     {
         // $data =  DB::select("SELECT scores.user_id, SUM(scores.score) as sum_score, COUNT(scores.score) as test_taken, users.name FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name ORDER BY sum_score DESC LIMIT 3");
 
-        $data = DB::select("SELECT scores.user_id, ROUND(SUM(scores.score) / COUNT(scores.score), 2) as avg_score, users.name FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name ORDER BY avg_score DESC LIMIT 3"); 
+        $data = DB::select("SELECT scores.user_id, ROUND(SUM(scores.result_cum) / COUNT(scores.result_cum), 2) as avg_score, users.name, scores.result_sheet FROM scores LEFT JOIN users ON users.id = scores.user_id GROUP BY scores.user_id, users.name,scores.result_sheet ORDER BY avg_score DESC LIMIT 3"); 
 
 		return response($data);
     }
