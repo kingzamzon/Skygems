@@ -35,6 +35,10 @@ class Tutor extends Model
         return $this->belongsTo(User::class);
     }
 
+
+    /**
+     * Many to many relationship
+     */
     public function users()
     {
         return $this->belongsToMany(
