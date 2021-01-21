@@ -60,5 +60,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     // override voyager 
     Route::post('questions/store', ['uses' => 'VoyagerQuestionController@store', 'as' => 'voyager.questions.store']);
-	Route::put('questions/store/{id}', ['uses' => 'VoyagerQuestionController@update', 'as' => 'voyager.questions.update']);
+    Route::put('questions/store/{id}', ['uses' => 'VoyagerQuestionController@update', 'as' => 'voyager.questions.update']);
+    
+    // Generate Pins
+    Route::post('generatepins/store', ['uses' => 'VoyagerGeneratePinsController@store', 'as' => 'voyager.generatepins.store']);
 });

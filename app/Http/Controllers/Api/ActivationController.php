@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Activation;
+use App\Generatepin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ActivationService;
@@ -34,6 +35,17 @@ class ActivationController extends Controller
      */
     public function store(ActivationRequest $request)
     {
+        /**
+         * if payment_type = pin & pin have been used
+         *          
+         */
+        if( ($request->get("payment_type") == "pin") && (!$this->checkPinUsage($request->get('transaction_ref'), 'no')) ) {
+            return response(['error' => 'In-valid PIN']);
+        } else {
+            $pin_id =  $this->checkPinUsage($request->get('transaction_ref'), 'no')->id;
+            Generatepin::where('id', $pin_id)->update([  "used" => "yes"]); 
+        } 
+
         $data = [
             "user_id" => $request->get('user_id'),
             "payment_type" => $request->get('payment_type'),
@@ -43,9 +55,11 @@ class ActivationController extends Controller
             "imei_no" => $request->get('imei_no'),
         ];
 
-        $data = $this->activationService->create($data);
-
         return response($data);
+    }
+
+    public function checkPinUsage($pin, $status) {
+        return Generatepin::where(['pin' => $pin, 'used' => $status])->first();
     }
 
     /**
