@@ -31,7 +31,7 @@ class ActivationRequest extends FormRequest
             'status' => 'required',
             'transaction_ref' => 'required|unique:activations,transaction_ref',
             'exam_type' => 'required',
-            'imei_no' => 'required|unique:activations,imei_no'
+            // 'imei_no' => 'required|unique:activations,imei_no'
         ];
     }
 
@@ -51,7 +51,7 @@ class ActivationRequest extends FormRequest
             'transaction_ref.unique' => 'transaction_ref has already used.',
             'exam_type.required' => 'exam_type field is empty e.g Neco, Jamb.',
             'imei_no.required' => 'imei_no field is empty.',
-            'imei_no.unique' => 'imei_no has already used.',
+            // 'imei_no.unique' => 'imei_no has already used.',
         ];
     }
     

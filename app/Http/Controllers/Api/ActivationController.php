@@ -41,10 +41,12 @@ class ActivationController extends Controller
          */
         if( ($request->get("payment_type") == "pin") && (!$this->checkPinUsage($request->get('transaction_ref'), 'no')) ) {
             return response(['error' => 'In-valid PIN']);
-        } else {
+        } 
+
+        if ( ($request->get("payment_type") == "pin") && ($this->checkPinUsage($request->get('transaction_ref'), 'no')) ) {
             $pin_id =  $this->checkPinUsage($request->get('transaction_ref'), 'no')->id;
             Generatepin::where('id', $pin_id)->update([  "used" => "yes"]); 
-        } 
+        }
 
         $data = [
             "user_id" => $request->get('user_id'),
@@ -54,6 +56,8 @@ class ActivationController extends Controller
             "exam_type" => $request->get('exam_type'),
             "imei_no" => $request->get('imei_no'),
         ];
+
+        $data = $this->activationService->create($data);
 
         return response($data);
     }
