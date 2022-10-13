@@ -1,4 +1,4 @@
-# RentNaiaja
+# Skygems
 
 # Getting Started
 
