@@ -12,4 +12,4 @@
 8. Run `php artisan serve` (on your terminal) to run the project.
 9. When you make changes to the project, push to remote repo.
 
-To work with API check [Documentation](DOCUMENTATION.md)
+To work with API check [Documentation](https://www.postman.com/collections/6cbaefb7631813211002)
